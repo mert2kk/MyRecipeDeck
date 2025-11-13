@@ -1,5 +1,29 @@
-export default function Home() {
-  return (
-    <div>Lets goo</div>
-  );
+"use client";
+
+import React, { useState } from 'react';
+import Landing from './components/landing/Landing';
+import Dashboard from './components/recipes/Dashboard';  
+import Header from './components/common/Header';
+
+export default function Home(handleSignOut: () => void) {
+
+const [userSignedIn, setUserSignedIn] = useState(false);
+
+
+   
+  if (userSignedIn) {
+    return(
+        <div className='flex flex-col'>
+        <Header  />
+        <Dashboard />
+      </div>)
+
+    } else {
+
+    return <div>{userSignedIn}
+      <div>
+      <button onClick={ () => setUserSignedIn(!userSignedIn)}>Signed in</button>
+      </div><Landing /></div> 
+    }
+  
 }

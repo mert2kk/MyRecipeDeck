@@ -1,7 +1,8 @@
+import RecipeList from '@/app/components/recipes/RecipeList'
 import React from 'react'
 
 export default function page() {
   return (
-    <div> My Recipe List</div>
+    <div><RecipeList/></div>
   )
 }
