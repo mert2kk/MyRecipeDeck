@@ -1,6 +1,5 @@
 import React from 'react'
 import RecipeList from './RecipeList'
-import Header from '../common/Header'
 
 export default function Dashboard() {
   return (
