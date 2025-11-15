@@ -1,3 +1,3 @@
 export default function page() {
-  return <div>Favorites</div>
+  return <div>settings</div>
 }
