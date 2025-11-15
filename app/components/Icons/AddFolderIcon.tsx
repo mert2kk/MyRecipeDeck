@@ -1,6 +1,6 @@
 export default function AddFolderIcon() {
   return (
-    <div className="relative flex">
+    <div className="relative flex pb-1">
       <svg
         width="18"
         height="18"

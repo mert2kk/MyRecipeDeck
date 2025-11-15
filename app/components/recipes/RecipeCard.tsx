@@ -1,10 +1,13 @@
+'use client'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import AddFolderIcon from '../Icons/AddFolderIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import FilledHeartIcon from '../Icons/FilledHeartIcon'
 import FolderIcon from '../Icons/FolderIcon'
 
 export default function recipeCard() {
+  const router = useRouter()
   return (
     <div className="w-[500px] bg-[#f4f0e5] h-[250px] m-4 flex flex-row rounded-lg   ">
       <div className="w-2/5 flex items-center m-4 ">
@@ -52,7 +55,10 @@ export default function recipeCard() {
         </div>
         <p className="text-xs font-semibold text-gray-600">Main Dish</p>
         <div className="flex flex-row mt-4  ">
-          <button className="bg-[#fc4126] text-[#FFEBD0] px-4 py-2 rounded-2xl text-[12px] font-semibold ">
+          <button
+            className="bg-[#fc4126] text-[#FFEBD0] px-4 py-2 rounded-2xl text-[12px] font-semibold "
+            onClick={() => router.push('/recipes/123')}
+          >
             View Recipe
           </button>
           <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] ml-4 flex flex-row items-center justify-center space-x-2 ">
