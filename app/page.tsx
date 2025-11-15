@@ -1,29 +1,31 @@
-"use client";
+'use client'
 
-import React, { useState } from 'react';
-import Landing from './components/landing/Landing';
-import Dashboard from './components/recipes/Dashboard';  
-import Header from './components/common/Header';
+import { useState } from 'react'
+import Header from './components/common/Header'
+import Landing from './components/landing/Landing'
+import Dashboard from './components/recipes/Dashboard'
 
 export default function Home(handleSignOut: () => void) {
+  const [userSignedIn, setUserSignedIn] = useState(false)
 
-const [userSignedIn, setUserSignedIn] = useState(false);
-
-
-   
   if (userSignedIn) {
-    return(
-        <div className='flex flex-col'>
-        <Header  />
+    return (
+      <div className="flex flex-col">
+        <Header />
         <Dashboard />
-      </div>)
-
-    } else {
-
-    return <div>{userSignedIn}
+      </div>
+    )
+  } else {
+    return (
       <div>
-      <button onClick={ () => setUserSignedIn(!userSignedIn)}>Signed in</button>
-      </div><Landing /></div> 
-    }
-  
+        {userSignedIn}
+        <div>
+          <button onClick={() => setUserSignedIn(!userSignedIn)}>
+            Signed in
+          </button>
+        </div>
+        <Landing />
+      </div>
+    )
+  }
 }
