@@ -12,11 +12,11 @@ export default function Recipe() {
         {/* Image Part */}
         <div className="w-4/5 flex p-8 flex-col h-auto ">
           <div className="flex flex-col">
-            <button className="absolute place-self-end">
+            <button className="absolute place-self-end cursor-pointer">
               <FilledHeartIcon />
               <EmptyHeartIcon />
             </button>
-            <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center">
+            <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center cursor-pointer">
               <span>
                 <FolderIcon />
               </span>
@@ -57,7 +57,7 @@ export default function Recipe() {
           <div className="flex flex-col justify-center items-center">
             <p className="font-semibold text-gray-600 pb-4 ">Main Dish</p>
 
-            <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] flex flex-row items-center justify-center pb-2 space-x-2">
+            <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] flex flex-row items-center justify-center pb-2 space-x-2 cursor-pointer">
               <AddFolderIcon />
               <p>Add to Collection</p>
             </button>
