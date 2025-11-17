@@ -10,7 +10,7 @@ export default function recipeCard() {
   const router = useRouter()
   return (
     <div
-      className="w-[500px] bg-[#f4f0e5] h-[250px] m-4 flex flex-row rounded-lg  relative
+      className="w-full bg-[#f4f0e5] h-[250px] flex flex-row rounded-lg relative 
     shadow-[0_10px_25px_rgba(0,0,0,0.15),0_20px_50px_rgba(0,0,0,0.1)]
          transition-all duration-300 ease-in-out
          hover:shadow-[0_15px_40px_rgba(0,0,0,0.2),0_25px_60px_rgba(0,0,0,0.12)]
@@ -19,7 +19,7 @@ export default function recipeCard() {
          hover:backdrop-brightness-102
     "
     >
-      <button className="flex float-right cursor-pointer absolute top-0 right-0 m-2">
+      <button className="flex cursor-pointer absolute top-0 right-0 m-2">
         <FilledHeartIcon />
         <EmptyHeartIcon />
       </button>
@@ -33,10 +33,10 @@ export default function recipeCard() {
         <Image
           src="/images/Pasta.jpg"
           alt="Recipe Photo"
-          className="max-w-40 w-auto h-auto object-cover rounded-xl p-2"
+          className="max-w-40 w-auto h-auto object-fill rounded-xl p-2"
           width={160}
           height={160}
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'fill' }}
         />
       </div>
       <div className="w-3/5 flex flex-col p-2 justify-center m-4 mt-8">

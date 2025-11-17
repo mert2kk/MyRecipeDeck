@@ -1,16 +1,18 @@
 import RecipeCard from './RecipeCard'
+
 export default function RecipeList() {
   return (
-    <div className="flex flex-col p-10 w-screen flex-wrap">
-      <div className="flex flex-row flex-wrap justify-center">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-      </div>
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
+      <RecipeCard />
     </div>
   )
 }
