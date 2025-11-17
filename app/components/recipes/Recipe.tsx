@@ -62,7 +62,7 @@ export default function Recipe() {
         {/*  Below Image */}
       </div>
       {/* Text Side */}
-      <div className="w-3/5 p-8 h-auto items-center flex justify-center text-center overflow-auto">
+      <div className="w-3/5 p-8 h-full items-center flex justify-center text-center overflow-auto">
         <div className=" text-black flex flex-col space-y-8">
           <h1 className="font-bold text-xl">Pasta alla Vodka</h1>
           <div className="">

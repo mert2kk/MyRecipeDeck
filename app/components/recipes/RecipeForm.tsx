@@ -21,7 +21,7 @@ export default function RecipeForm() {
 
   return (
     <div className="bg-[#f4f0e5] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row relative items-center">
-      <h1 className="text-gray-500  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointe absolute">
+      <h1 className="text-gray-500  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer absolute">
         <span>
           <FolderIcon />
         </span>
@@ -102,7 +102,7 @@ export default function RecipeForm() {
       </div>
 
       {/* Right Side (Form Fields) */}
-      <div className="w-3/5 p-8 h-auto items-center flex justify-center text-center overflow-auto">
+      <div className="w-3/5 p-8 h-full items-center flex justify-center text-center overflow-auto">
         <div className="text-black flex flex-col space-y-8 w-full">
           <h1 className="font-bold text-xl">Create a Recipe</h1>
 
