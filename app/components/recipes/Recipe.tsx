@@ -6,24 +6,24 @@ import FolderIcon from '../Icons/FolderIcon'
 
 export default function Recipe() {
   return (
-    <div className=" bg-[#f4f0e5] flex flex-col rounded-lg p-4 h-full lg:flex-row items-center ">
+    <div className=" bg-[#f4f0e5] flex flex-col rounded-lg p-4 lg:h-full lg:flex-row items-center relative  ">
+      <h1 className="text-gray-500  text-sm font-bold absolute left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer">
+        <span>
+          <FolderIcon />
+        </span>
+        Healthy Meals
+      </h1>
+      <button className="absolute top-0 right-0 m-4 cursor-pointer">
+        <FilledHeartIcon />
+        <EmptyHeartIcon />
+      </button>
       {/* Left Side */}
-      <div className="flex flex-col h-auto justify-center items-center w-2/5">
+      <div className="flex flex-col justify-center items-center w-2/5 ">
         {/* Image Part */}
-        <div className="w-4/5 flex p-8 flex-col h-auto ">
+        <div className="w-4/5 flex p-8 flex-col  ">
           <div className="flex flex-col">
-            <button className="absolute place-self-end cursor-pointer">
-              <FilledHeartIcon />
-              <EmptyHeartIcon />
-            </button>
-            <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center cursor-pointer">
-              <span>
-                <FolderIcon />
-              </span>
-              Healthy Meals
-            </h1>
-            <h2 className="text-[#173B61] font-serif font-semibold">
-              Pasta Vodka
+            <h2 className="text-[#173B61] font-serif font-semibold text-center">
+              Pasta alla Vodka
             </h2>
           </div>
           <Image

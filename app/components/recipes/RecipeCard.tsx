@@ -10,7 +10,7 @@ export default function recipeCard() {
   const router = useRouter()
   return (
     <div
-      className="w-[500px] bg-[#f4f0e5] h-[250px] m-4 flex flex-row rounded-lg 
+      className="w-[500px] bg-[#f4f0e5] h-[250px] m-4 flex flex-row rounded-lg  relative
     shadow-[0_10px_25px_rgba(0,0,0,0.15),0_20px_50px_rgba(0,0,0,0.1)]
          transition-all duration-300 ease-in-out
          hover:shadow-[0_15px_40px_rgba(0,0,0,0.2),0_25px_60px_rgba(0,0,0,0.12)]
@@ -19,7 +19,17 @@ export default function recipeCard() {
          hover:backdrop-brightness-102
     "
     >
-      <div className="w-2/5 flex items-center m-4 ">
+      <button className="flex float-right cursor-pointer absolute top-0 right-0 m-2">
+        <FilledHeartIcon />
+        <EmptyHeartIcon />
+      </button>
+      <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center cursor-pointer absolute top-0 left-0 m-2">
+        <span>
+          <FolderIcon />
+        </span>
+        Healthy Meals
+      </h1>
+      <div className="w-2/5 flex items-center m-4 mt-8 ">
         <Image
           src="/images/Pasta.jpg"
           alt="Recipe Photo"
@@ -29,20 +39,10 @@ export default function recipeCard() {
           style={{ objectFit: 'contain' }}
         />
       </div>
-      <div className="w-3/5 flex flex-col p-2 justify-center m-4">
+      <div className="w-3/5 flex flex-col p-2 justify-center m-4 mt-8">
         <div>
-          <button className="flex float-right cursor-pointer">
-            <FilledHeartIcon />
-            <EmptyHeartIcon />
-          </button>
-          <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center cursor-pointer">
-            <span>
-              <FolderIcon />
-            </span>
-            Healthy Meals
-          </h1>
           <h2 className="text-[#173B61] font-serif font-semibold">
-            Pasta Vodka
+            Pasta alla Vodka
           </h2>
         </div>
 
