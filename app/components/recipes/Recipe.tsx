@@ -6,7 +6,7 @@ import FolderIcon from '../Icons/FolderIcon'
 
 export default function Recipe() {
   return (
-    <div className=" bg-[#f4f0e5] flex flex-col rounded-lg p-4 lg:h-full lg:flex-row items-center relative  ">
+    <div className=" bg-[#f4f0e5] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row items-center relative  ">
       <h1 className="text-gray-500  text-sm font-bold absolute left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer">
         <span>
           <FolderIcon />
@@ -20,12 +20,10 @@ export default function Recipe() {
       {/* Left Side */}
       <div className="flex flex-col justify-center items-center w-2/5 ">
         {/* Image Part */}
-        <div className="w-4/5 flex p-8 flex-col  ">
-          <div className="flex flex-col">
-            <h2 className="text-[#173B61] font-serif font-semibold text-center">
-              Pasta alla Vodka
-            </h2>
-          </div>
+        <div className="w-4/5 flex p-8 flex-col min-w-80 ">
+          <h2 className="text-[#173B61] font-serif font-semibold text-center">
+            Pasta alla Vodka
+          </h2>
           <Image
             src="/images/Pasta.jpg"
             alt="Recipe Photo"
@@ -35,8 +33,6 @@ export default function Recipe() {
             style={{ objectFit: 'contain' }}
           />
         </div>
-        {/*  Below Image */}
-
         <div className="w-4/5 flex flex-col p-2 justify-center items-center  space-y-6">
           <div className="flex flex-row  space-x-4 text-lg text-[#7697a0]">
             <p className="flex flex-col font-bold">
@@ -63,9 +59,10 @@ export default function Recipe() {
             </button>
           </div>
         </div>
+        {/*  Below Image */}
       </div>
       {/* Text Side */}
-      <div className="w-3/5 p-8 h-auto items-center flex justify-center text-center">
+      <div className="w-3/5 p-8 h-auto items-center flex justify-center text-center overflow-auto">
         <div className=" text-black flex flex-col space-y-8">
           <h1 className="font-bold text-xl">Pasta alla Vodka</h1>
           <div className="">

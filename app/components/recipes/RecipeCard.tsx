@@ -23,7 +23,7 @@ export default function recipeCard() {
         <FilledHeartIcon />
         <EmptyHeartIcon />
       </button>
-      <h1 className="text-gray-500 uppercase text-xs flex flex-row gap-2 items-center cursor-pointer absolute top-0 left-0 m-2">
+      <h1 className="text-gray-500 font-bold text-xs flex flex-row gap-2 items-center cursor-pointer absolute top-0 left-0 m-2">
         <span>
           <FolderIcon />
         </span>
