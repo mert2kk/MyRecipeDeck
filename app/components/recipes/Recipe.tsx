@@ -6,7 +6,7 @@ import FolderIcon from '../Icons/FolderIcon'
 
 export default function Recipe() {
   return (
-    <div className=" bg-[#f4f0e5] flex flex-row rounded-lg w-full h-full  ">
+    <div className=" bg-[#f4f0e5] flex flex-col rounded-lg p-4 h-full lg:flex-row items-center ">
       {/* Left Side */}
       <div className="flex flex-col h-auto justify-center items-center w-2/5">
         {/* Image Part */}

@@ -1,7 +1,10 @@
+'use client'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import HeaderMenu from './HeaderMenu'
 
 export default function Header() {
+  const router = useRouter()
   return (
     <div className="flex justify-between items-center p-4 bg-[#242d4c] flex-row w-screen h-28">
       <Image
@@ -10,6 +13,7 @@ export default function Header() {
         height={100}
         alt="logo"
         className="ml-10 p-2"
+        onClick={() => router.push('/recipes')}
       />
       <div>
         <HeaderMenu />

@@ -7,10 +7,10 @@ export default function PagesLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col min-h-screen h-screen">
+    <div className="flex flex-col min-h-screen min-w-screen">
       <Header />
 
-      <main className="flex flex-wrap items-center justify-center h-full">
+      <main className="flex items-center justify-center min-h-[calc(100vh-112px)] p-4 min-w-screen ">
         {children}
       </main>
     </div>
