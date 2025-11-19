@@ -56,37 +56,41 @@ export default function Recipe() {
         {/*  Below Image */}
       </div>
       {/* Text Side */}
-      <div className="w-3/5 p-8 h-full items-center flex justify-center text-center overflow-auto">
-        <div className=" text-black flex flex-col space-y-8">
-          <h1 className="font-bold text-xl">Pasta alla Vodka</h1>
-          <div className="">
-            <h2 className="font-bold">Ingredients</h2>
-            <ol>
+      <div className="w-3/5 p-8 h-full items-center flex gap-y-20 text-center overflow-auto flex-col xl:mr-6">
+        <h1 className="font-bold text-4xl text-black ">Pasta alla Vodka</h1>
+        <div className=" text-black flex flex-col gap-12">
+          <div className="gap-8 flex flex-col">
+            <h2 className="font-bold text-3xl">Ingredients</h2>
+            <ul className="text-xl text-start list-disc">
               <li>200 g pasta (penne or rigatoni works best)</li>
               <li> 2 tbsp olive oil</li>
               <li>2 cloves garlic, minced</li>
               <li>1 small onion, finely chopped</li>
               <li>200 g tomato sauce or crushed tomatoes</li>
-            </ol>
+            </ul>
           </div>
-          <div>
-            <h2 className="font-bold">Instructions</h2>
-            <ol>
+          <div className="gap-8 flex flex-col">
+            <h2 className="font-bold text-3xl">Instructions</h2>
+            <ol className="text-xl text-start list-decimal">
               <li>Cook the pasta</li>
+              <li>Prepare the sauce</li>
+              <li>Deglaze with vodka</li>
+              <li>Add tomato sauce</li>
+              <li>Make it creamy</li> <li>Cook the pasta</li>
               <li>Prepare the sauce</li>
               <li>Deglaze with vodka</li>
               <li>Add tomato sauce</li>
               <li>Make it creamy</li>
             </ol>
           </div>
-          <div>
-            <h2 className="font-bold">Tips</h2>
-            <ol>
+          <div className="gap-8 flex flex-col">
+            <h2 className="font-bold text-3xl">Tips</h2>
+            <ul className="text-xl text-start list-disc">
               <li>Don’t worry — the alcohol cooks off; just flavor remains.</li>
               <li>
                 Rigatoni or penne sticks to the sauce better than spaghetti.
               </li>
-            </ol>
+            </ul>
           </div>
         </div>
       </div>

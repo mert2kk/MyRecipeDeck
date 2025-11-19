@@ -30,9 +30,8 @@ export default function RecipeDeck() {
           }}
         />
       ))}
-
       {/* Top card */}
-      <div className="group relative z-10  w-full h-full bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+      <div className="group relative z-10  w-full h-full bg-[#f4f0e5] rounded-xl border border-gray-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
         {/* --- IMAGE SECTION (Sadece Zoom Efekti) --- */}
         <div className="h-[60%] w-full relative overflow-hidden">
           <img
@@ -49,35 +48,37 @@ export default function RecipeDeck() {
         </div>
 
         {/* --- CONTENT SECTION --- */}
-        <div className="flex-1 p-5 flex flex-col justify-between">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 leading-tight">
-              Healthy Meals
-            </h3>
+        <a href="/decks/123">
+          <div className="flex-1 p-5 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                Healthy Meals
+              </h3>
 
-            {/* Text Tags */}
-            <div className="mt-3 flex flex-wrap gap-2">
-              <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md">
-                Healthy
+              {/* Text Tags */}
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
+                  Healthy
+                </span>
+                <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
+                  Vegan
+                </span>
+              </div>
+            </div>
+
+            {/*Footer */}
+            <div className="flex items-center justify-between pt-4">
+              <span className="text-sm font-semibold text-gray-500">
+                12 Recipe Cards
               </span>
-              <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md">
-                Vegan
-              </span>
+
+              {/* Arrow Icon */}
+              <div className=" group-hover:translate-x-2 transition-transform duration-300">
+                <RightArrow />
+              </div>
             </div>
           </div>
-
-          {/*Footer */}
-          <div className="flex items-center justify-between pt-4">
-            <span className="text-sm font-semibold text-gray-500">
-              12 Recipe Cards
-            </span>
-
-            {/* Arrow Icon */}
-            <div className=" group-hover:translate-x-2 transition-transform duration-300">
-              <RightArrow />
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   )
