@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
+import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FolderIcon from '../Icons/FolderIcon'
 import ServiceBellIcon from '../Icons/ServiceBellIcon'
 import AddCollectionMenu from './AddCollectionMenu'
 
@@ -20,9 +20,10 @@ export default function RecipeForm() {
 
   return (
     <div className="bg-[#7697a000] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row relative items-center">
-      <h1 className="text-gray-500  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer absolute">
-        <span>
-          <FolderIcon />
+      <h1 className="text-black  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer absolute ">
+        <span className="flex flex-row text-white relative">
+          <DeckIcon />
+          <p className="absolute pt-0.5 right-0.5">+</p>
         </span>
         <AddCollectionMenu />
       </h1>

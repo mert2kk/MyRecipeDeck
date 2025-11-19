@@ -1,13 +1,13 @@
 import Image from 'next/image'
+import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FolderIcon from '../Icons/FolderIcon'
 
 export default function Recipe() {
   return (
     <div className=" bg-[#7697a000] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row items-center relative  ">
-      <h1 className="text-gray-500  text-sm font-bold absolute left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer">
+      <h1 className="text-black  text-sm font-bold absolute left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer">
         <span>
-          <FolderIcon />
+          <DeckIcon />
         </span>
         Healthy Meals
       </h1>
