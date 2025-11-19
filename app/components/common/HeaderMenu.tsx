@@ -6,7 +6,7 @@ export default function HeaderMenu() {
   const router = useRouter()
 
   return (
-    <div>
+    <div className="">
       <button
         className="p-4 font-semibold text-sm cursor-pointer "
         onClick={() => router.push('/recipes')}

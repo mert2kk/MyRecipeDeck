@@ -1,9 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import AddFolderIcon from '../Icons/AddFolderIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FilledHeartIcon from '../Icons/FilledHeartIcon'
 import FolderIcon from '../Icons/FolderIcon'
 import AddCollectionMenu from './AddCollectionMenu'
 
@@ -28,7 +26,7 @@ export default function RecipeForm() {
         <AddCollectionMenu />
       </h1>
       <button className="absolute top-0 right-0 m-4 cursor-pointer">
-        <FilledHeartIcon />
+        {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />
       </button>
       {/* Left Side */}
@@ -91,18 +89,12 @@ export default function RecipeForm() {
           </div>
 
           <div className="flex flex-col justify-center items-center">
-            <p className="font-semibold text-gray-600 pb-4">Category</p>
-
-            <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] flex flex-row items-center justify-center pb-2 space-x-2 cursor-pointer">
-              <AddFolderIcon />
-              <p>Main Dish</p>
-            </button>
+            <p className="font-semibold text-gray-600 pb-4">Dish Type</p>
           </div>
         </div>
       </div>
-
       {/* Right Side (Form Fields) */}
-      <div className="w-3/5 p-8 h-full items-center flex justify-center text-center overflow-auto">
+      <div className="w-full p-8 h-full items-center flex justify-center text-center overflow-auto flex-col xl:mr-6">
         <div className="text-black flex flex-col space-y-8 w-full">
           <h1 className="font-bold text-xl">Create a Recipe</h1>
 
@@ -144,13 +136,12 @@ export default function RecipeForm() {
               placeholder="Add any notes..."
             />
           </div>
-
-          {/* Button */}
-          <button className="bg-[#173B61] hover:bg-[#1f4c7f] duration-300 text-white font-semibold py-2 rounded shadow-md hover:shadow-xl">
-            Save Recipe
-          </button>
         </div>
       </div>
+      {/* Button */}
+      <button className="bg-[#173B61] absolute bottom-0 right-0  hover:bg-[#1f4c7f] duration-300 text-white font-semibold p-2 px-4 m-0 rounded-l-xl rounded-bl-none shadow-md hover:shadow-xl">
+        Save Recipe
+      </button>
     </div>
   )
 }

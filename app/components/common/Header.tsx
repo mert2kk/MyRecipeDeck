@@ -6,7 +6,7 @@ import HeaderMenu from './HeaderMenu'
 export default function Header() {
   const router = useRouter()
   return (
-    <div className="flex justify-between items-center p-4 bg-[#242d4c] flex-row w-screen h-28">
+    <div className="flex justify-between items-center p-4 bg-[#242d4c] flex-col lg:flex-row w-screen h-auto lg:h-28 text-center">
       <Image
         src="/images/myRecipeDeck.png"
         width={100}
@@ -15,7 +15,7 @@ export default function Header() {
         className="ml-10 p-2"
         onClick={() => router.push('/recipes')}
       />
-      <div>
+      <div className="flex flex-col lg:flex-wrap">
         <HeaderMenu />
       </div>
       <button className="p-4 font-semibold text-sm ">Sign Out</button>
