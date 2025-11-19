@@ -69,7 +69,7 @@ export default function RecipeDeck() {
           {/*Footer */}
           <div className="flex items-center justify-between pt-4">
             <span className="text-sm font-semibold text-gray-500">
-              12 Recipes
+              12 Recipe Cards
             </span>
 
             {/* Arrow Icon */}
