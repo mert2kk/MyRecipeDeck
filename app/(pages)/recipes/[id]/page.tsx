@@ -23,7 +23,7 @@ export default async function RecipeDetailPage({
       </div>
       <a
         href={`/recipes/${id}/edit`}
-        className="text-[#173B61] flex items-center absolute bottom-0 right-0 p-2 px-4  gap-2 bg-[#ffffff] rounded-l-xl rounded-bl-none font-semibold "
+        className="text-white flex items-center absolute bottom-0 right-0 p-2 px-4  gap-2 bg-[#173B61]  hover:bg-[#1f4c7f] rounded-l-xl rounded-bl-none font-semibold "
       >
         Edit this recipe
         <KnifeForkIcon />

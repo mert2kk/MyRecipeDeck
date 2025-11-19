@@ -9,7 +9,7 @@ export default function recipeCard() {
   const router = useRouter()
   return (
     <div
-      className="w-full bg-[#f4f0e5] h-[250px] flex flex-row rounded-lg relative
+      className="w-full bg-[#7697a000] h-[250px] flex flex-row rounded-2xl relative
     shadow-[0_10px_25px_rgba(0,0,0,0.15),0_20px_50px_rgba(0,0,0,0.1)]
          transition-all duration-300 ease-in-out
          hover:shadow-[0_15px_40px_rgba(0,0,0,0.2),0_25px_60px_rgba(0,0,0,0.12)]
@@ -32,7 +32,7 @@ export default function recipeCard() {
         <Image
           src="/images/Pasta.jpg"
           alt="Recipe Photo"
-          className="max-w-40 w-auto h-auto object-fill rounded-xl p-2"
+          className="max-w-40 w-auto h-auto object-fill rounded-4xl p-2"
           width={160}
           height={160}
           style={{ objectFit: 'fill' }}
@@ -46,7 +46,7 @@ export default function recipeCard() {
           </h2>
         </div>
 
-        <div className="flex flex-row  space-x-4 mt-2 mb-2 text-sm text-[#7697a0]">
+        <div className="flex flex-row  space-x-4 mt-2 mb-2 text-sm text-[#5e6465]">
           <p className="flex flex-col font-bold">
             50<span className="text-xs font-medium">Mins</span>
           </p>
@@ -70,7 +70,7 @@ export default function recipeCard() {
           >
             View Recipe
           </button>
-          <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px]  flex flex-row items-center justify-center space-x-2 cursor-pointer ">
+          <button className="bg-[#aeb8be00] text-gray-500 font-semibold text-[12px]  flex flex-row items-center justify-center space-x-2 cursor-pointer ">
             <CardsIcon />
             <p>Add to a Deck</p>
           </button>

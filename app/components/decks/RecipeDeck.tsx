@@ -21,7 +21,7 @@ export default function RecipeDeck() {
       {cards.map((c, idx) => (
         <div
           key={idx}
-          className="absolute w-full h-full bg-[#F4F0E5] rounded-xl shadow-md border border-[#87847c] border-opacity-70"
+          className="absolute w-full h-full bg-[#dfebed] rounded-xl shadow-md border border-[#87847c] border-opacity-70"
           style={{
             top: `${c.top}px`,
             left: `${c.left}px`,
@@ -31,7 +31,7 @@ export default function RecipeDeck() {
         />
       ))}
       {/* Top card */}
-      <div className="group relative z-10  w-full h-full bg-[#f4f0e5] rounded-xl border border-gray-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+      <div className="group relative z-10  w-full h-full bg-[#dfebed] rounded-xl border border-gray-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
         {/* --- IMAGE SECTION (Sadece Zoom Efekti) --- */}
         <div className="h-[60%] w-full relative overflow-hidden">
           <img
