@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import AddFolderIcon from '../Icons/AddFolderIcon'
+import CardsIcon from '../Icons/CardsIcon'
+import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FolderIcon from '../Icons/FolderIcon'
 
 export default function recipeCard() {
   const router = useRouter()
@@ -24,7 +24,7 @@ export default function recipeCard() {
       </button>
       <h1 className="text-gray-500 font-bold text-xs flex flex-row gap-2 items-center cursor-pointer absolute top-0 left-0 m-2">
         <span>
-          <FolderIcon />
+          <DeckIcon />
         </span>
         Healthy Meals
       </h1>
@@ -71,7 +71,7 @@ export default function recipeCard() {
             View Recipe
           </button>
           <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px]  flex flex-row items-center justify-center space-x-2 cursor-pointer ">
-            <AddFolderIcon />
+            <CardsIcon />
             <p>Add to a Deck</p>
           </button>
         </div>
