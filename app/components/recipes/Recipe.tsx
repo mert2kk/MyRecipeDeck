@@ -1,7 +1,5 @@
 import Image from 'next/image'
-import AddFolderIcon from '../Icons/AddFolderIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FilledHeartIcon from '../Icons/FilledHeartIcon'
 import FolderIcon from '../Icons/FolderIcon'
 
 export default function Recipe() {
@@ -14,7 +12,7 @@ export default function Recipe() {
         Healthy Meals
       </h1>
       <button className="absolute top-0 right-0 m-4 cursor-pointer">
-        <FilledHeartIcon />
+        {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />
       </button>
       {/* Left Side */}
@@ -27,10 +25,11 @@ export default function Recipe() {
           <Image
             src="/images/Pasta.jpg"
             alt="Recipe Photo"
-            className=" w-auto object-cover rounded-xl p-2"
+            className=" w-auto object-cover rounded-xl p-2 "
             width={320}
             height={320}
             style={{ objectFit: 'contain' }}
+            draggable="false"
           />
         </div>
         <div className="w-4/5 flex flex-col p-2 justify-center items-center  space-y-6">
@@ -52,11 +51,6 @@ export default function Recipe() {
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="font-semibold text-gray-600 pb-4 ">Main Dish</p>
-
-            <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] flex flex-row items-center justify-center pb-2 space-x-2 cursor-pointer">
-              <AddFolderIcon />
-              <p>Add to Collection</p>
-            </button>
           </div>
         </div>
         {/*  Below Image */}

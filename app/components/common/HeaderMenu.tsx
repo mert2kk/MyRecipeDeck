@@ -15,9 +15,9 @@ export default function HeaderMenu() {
       </button>
       <button
         className="p-4 font-semibold text-sm cursor-pointer "
-        onClick={() => router.push('/collections')}
+        onClick={() => router.push('/decks')}
       >
-        Collections
+        My Recipe Decks
       </button>
       <button
         className="p-4 font-semibold text-sm cursor-pointer "

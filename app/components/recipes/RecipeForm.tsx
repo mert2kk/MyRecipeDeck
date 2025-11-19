@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import FolderIcon from '../Icons/FolderIcon'
+import ServiceBellIcon from '../Icons/ServiceBellIcon'
 import AddCollectionMenu from './AddCollectionMenu'
 
 export default function RecipeForm() {
@@ -139,8 +140,9 @@ export default function RecipeForm() {
         </div>
       </div>
       {/* Button */}
-      <button className="bg-[#173B61] absolute bottom-0 right-0  hover:bg-[#1f4c7f] duration-300 text-white font-semibold p-2 px-4 m-0 rounded-l-xl rounded-bl-none shadow-md hover:shadow-xl">
+      <button className="bg-[#173B61] absolute bottom-0 right-0  hover:bg-[#1f4c7f] duration-300 text-white font-semibold p-2 px-4  rounded-l-xl rounded-bl-none shadow-md hover:shadow-xl flex flex-row gap-2">
         Save Recipe
+        <ServiceBellIcon />
       </button>
     </div>
   )

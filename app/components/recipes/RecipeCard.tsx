@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import AddFolderIcon from '../Icons/AddFolderIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
-import FilledHeartIcon from '../Icons/FilledHeartIcon'
 import FolderIcon from '../Icons/FolderIcon'
 
 export default function recipeCard() {
@@ -20,7 +19,7 @@ export default function recipeCard() {
     "
     >
       <button className="flex cursor-pointer absolute top-0 right-0 m-2">
-        <FilledHeartIcon />
+        {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />
       </button>
       <h1 className="text-gray-500 font-bold text-xs flex flex-row gap-2 items-center cursor-pointer absolute top-0 left-0 m-2">
@@ -37,9 +36,10 @@ export default function recipeCard() {
           width={160}
           height={160}
           style={{ objectFit: 'fill' }}
+          draggable="false"
         />
       </div>
-      <div className="w-3/5 flex flex-col p-2 justify-center m-4 mt-8">
+      <div className="w-3/5 flex flex-col  justify-center m-4 mt-8">
         <div>
           <h2 className="text-[#173B61] font-serif font-semibold">
             Pasta alla Vodka
@@ -63,16 +63,16 @@ export default function recipeCard() {
           </div>
         </div>
         <p className="text-xs font-semibold text-gray-600">Main Dish</p>
-        <div className="flex flex-row mt-4  ">
+        <div className="flex flex-col mt-4 gap-4 items-center ">
           <button
-            className="bg-[#fc4126] text-[#FFEBD0] px-4 py-2 rounded-2xl text-[12px] font-semibold cursor-pointer "
+            className="bg-[#fc4126] text-[#FFEBD0]  py-2 rounded-2xl text-[12px] font-semibold cursor-pointer w-[150px] "
             onClick={() => router.push('/recipes/123')}
           >
             View Recipe
           </button>
-          <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px] ml-4 flex flex-row items-center justify-center space-x-2 cursor-pointer ">
+          <button className="bg-[#f4f0e5] text-gray-500 font-semibold text-[12px]  flex flex-row items-center justify-center space-x-2 cursor-pointer ">
             <AddFolderIcon />
-            <p>Add to Collection</p>
+            <p>Add to a Deck</p>
           </button>
         </div>
       </div>
