@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import Landing from './components/landing/Landing'
+import Landing from '../components/landing/Landing'
 
 export default function Home() {
   const router = useRouter()
@@ -10,6 +10,7 @@ export default function Home() {
 
     router.push('/recipes')
   }
+  console.log('MONGODB_URI:', process.env.MONGO_URI)
 
   return (
     <div>

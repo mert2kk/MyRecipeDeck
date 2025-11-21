@@ -1,4 +1,4 @@
-import RecipeForm from '@/app/components/recipes/RecipeForm'
+import RecipeForm from '@/components/recipes/RecipeForm'
 
 export default async function EditRecipePage({
   params,

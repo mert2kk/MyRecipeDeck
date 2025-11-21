@@ -1,4 +1,4 @@
-import RecipeDecks from '@/app/components/decks/RecipeDecks'
+import RecipeDecks from '@/components/decks/RecipeDecks'
 
 export default function Page() {
   return (

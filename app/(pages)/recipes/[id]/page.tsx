@@ -1,5 +1,5 @@
-import KnifeForkIcon from '@/app/components/Icons/KnifeForkIcon'
-import Recipe from '@/app/components/recipes/Recipe'
+import KnifeForkIcon from '@/components/Icons/KnifeForkIcon'
+import Recipe from '@/components/recipes/Recipe'
 
 export default async function RecipeDetailPage({
   params,
