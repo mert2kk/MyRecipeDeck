@@ -1,26 +1,37 @@
 @import 'tailwindcss';
 
+/* BURASI ÇOK ÖNEMLİ: v4'te Ayarlar Burada Yapılır */
+@theme {
+  /* Renk Tanımları */
+  --color-brand-bg: #dfebed;
+  --color-brand-dark: #242d4d;
+  --color-brand-orange: #fc4226;
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+@custom-variant short (@media (max-height: 700px));
+/* Varsayılan Body Ayarları */
 :root {
-  --background: #b7d2d76e;
-  --foreground: #ffebd0;
+  --background: #dfebed;
+  --foreground: #242d4d;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #989292;
-    --foreground: #ededed;
-  }
-} */
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+/* Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* IE and Edge */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
 }
