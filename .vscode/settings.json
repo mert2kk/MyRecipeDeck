@@ -1,28 +1,114 @@
 {
-  // -------- FORMATTER --------
-  "editor.formatOnSave": true,
-  // Prettier is the ONLY formatter
+  // ================================
+  // GÖRÜNÜM VE EDİTÖR TEMEL AYARLARI
+  // ================================
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Visual Studio Dark - C++",
+  "editor.fontSize": 13,
+  "editor.wordWrap": "on",
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "workbench.localHistory.enabled": false,
+  "explorer.confirmDelete": false,
+
+  // ================================
+  // FORMATLAMA VE ESLINT (KRİTİK BÖLÜM)
+  // ================================
+
+  // 1. Varsayılan formatlayıcı olarak Prettier'ı seçiyoruz.
+  // Bu, .prettierrc dosyanın okunmasını sağlar.
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
-  // -------- ESLINT --------
+  // 2. Kaydederken otomatik formatla.
+  "editor.formatOnSave": true,
+
+  // 3. ESLint Entegrasyonu (Workspace ayarlarından aldık)
   "eslint.enable": true,
   "eslint.run": "onType",
+  // Hangi dosyalarda ESLint çalışsın
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vue"
   ],
 
-  // Run ESLint fixes + Prettier formatting on save
+  // 4. Kaydederken yapılacak işlemler.
+  // HEM Prettier formatlasın HEM ESLint düzeltsin istiyoruz.
+  // ÖNEMLİ: Projenin ESLint ayarlarında "eslint-config-prettier" yüklü olmalı ki çakışma olmasın.
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "explicit"
   },
 
-  // Optional: disable VSCode’s built-in TS formatter (avoids conflicts)
+  // --- DİL ÖZELİNDE FORMATLAYICI GARANTİSİ ---
+  // (Önceki hatayı düzeltiyoruz, hepsi Prettier kullanmalı)
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
+  "[vue]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // Python gibi dillerde yazarken formatlamayı kapatmak genelde iyidir.
+  "[python]": { "editor.formatOnType": false },
+
+  // ================================
+  // DİĞER AYARLAR (Emmet, Tailwind vb.)
+  // ================================
+
+  // --- EMMET ---
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  // --- TAILWIND CSS v4 ---
+  "css.lint.unknownAtRules": "ignore",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  // --- DOSYA VE GİT ---
+  "files.autoSave": "onWindowChange",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
+
+  // --- TODO HIGHLIGHT ---
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "NOTE:",
+      "color": "#ecf0f1",
+      "backgroundColor": "#3498db",
+      "borderRadius": "4px"
+    },
+    {
+      "text": "FIXME:",
+      "color": "#ecf0f1",
+      "backgroundColor": "#f1c40f",
+      "borderRadius": "4px"
+    },
+    {
+      "text": "TODO:",
+      "color": "#ecf0f1",
+      "backgroundColor": "#2ecc71",
+      "borderRadius": "4px"
+    }
+  ],
+  "eslint.format.enable": true
 }
