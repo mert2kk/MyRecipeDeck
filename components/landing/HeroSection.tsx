@@ -1,14 +1,19 @@
-"use client";
-import { useRouter } from "next/navigation";
-import RecipeCard from "../recipes/RecipeCard";
+'use client'
+import { signIn, useSession } from 'next-auth/react' // 1. NextAuth hook'larını ekledik
+import { useRouter } from 'next/navigation'
+import RecipeCard from '../recipes/RecipeCard'
 
 const HeroSection = () => {
-  const router = useRouter();
+  const router = useRouter()
+  const { data: session, status } = useSession()
 
-  const handleLogin = () => {
-    console.log("Giriş yapılıyor...");
-    router.push("/recipes");
-  };
+  const handleLogin = async () => {
+    if (session) {
+      router.push('/recipes')
+      return
+    }
+    await signIn('google', { callbackUrl: '/recipes' })
+  }
 
   return (
     <section className="h-screen w-full snap-start bg-brand-bg flex items-center justify-center pb-6 overflow-hidden short:flex-none flex-col">
@@ -24,20 +29,48 @@ const HeroSection = () => {
 
           <button
             onClick={handleLogin}
-            className="bg-brand-orange text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition shadow-lg flex items-center gap-2 max-h-[700px]:py-2 short:text-xs"
+            disabled={status === 'loading'}
+            className="bg-brand-orange text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition shadow-lg flex items-center gap-2 max-h-[700px]:py-2 short:text-xs disabled:opacity-50"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                fill="#FFFFFF"
-                fillOpacity="0.2"
-              />
-              <path
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                fill="#FFFFFF"
-              />
-            </svg>
-            Sign in with Google
+            {status === 'loading' ? (
+              <span>Loading...</span>
+            ) : session ? (
+              <>
+                Go to Recipes
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </>
+            ) : (
+              <>
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    fill="#FFFFFF"
+                    fillOpacity="0.2"
+                  />
+                  <path
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    fill="#FFFFFF"
+                  />
+                </svg>
+                Sign in with Google
+              </>
+            )}
           </button>
         </div>
 
@@ -48,8 +81,7 @@ const HeroSection = () => {
               title="Blueberry Pancakes"
               category="Greens"
               image="/images/pancake.jpg"
-              stats={{ time: "15", serving: "2", kcal: "320" }}
-              // Kullanıcı tıklayamasın diye pointer-events-none ekliyoruz
+              stats={{ time: '15', serving: '2', kcal: '320' }}
               className="pointer-events-none shadow-none"
             />
           </div>
@@ -60,7 +92,7 @@ const HeroSection = () => {
               title=""
               category="Greek Salad"
               image="/images/salad.jpg"
-              stats={{ time: "20", serving: "4", kcal: "580" }}
+              stats={{ time: '20', serving: '4', kcal: '580' }}
               className="pointer-events-none shadow-md"
             />
           </div>
@@ -71,14 +103,14 @@ const HeroSection = () => {
               title="Pasta alla Vodka"
               category="Main Dish"
               image="/images/Pasta.jpg"
-              stats={{ time: "50", serving: "4", kcal: "450" }}
+              stats={{ time: '50', serving: '4', kcal: '450' }}
               className="shadow-2xl pointer-events-none"
             />
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection
