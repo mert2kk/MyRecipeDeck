@@ -16,7 +16,10 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="h-screen w-full snap-start bg-brand-bg flex items-center justify-center pb-6 overflow-hidden short:flex-none flex-col">
+    <section
+      id="hero-section"
+      className="h-screen w-full snap-start bg-brand-bg flex items-center justify-center pb-6 overflow-hidden short:flex-none flex-col"
+    >
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center short:gap-0">
         <div className="space-y-6 z-20 relative flex flex-col items-center text-center lg:text-start lg:items-start mt-10 lg:mt-0 short:mt-4 short:space-y-0 short:pt-10">
           <h1 className=" short:text-2xl text-5xl md:text-6xl font-bold text-brand-dark leading-tight  ">
@@ -54,18 +57,16 @@ const HeroSection = () => {
             ) : (
               <>
                 <svg
-                  className="w-5 h-5"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mr-2"
                 >
                   <path
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                    fill="#FFFFFF"
-                    fillOpacity="0.2"
-                  />
-                  <path
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                    fill="#FFFFFF"
+                    d="M21.5939 11.0792H12.3209V13.8256H18.9768C18.6214 17.6382 15.5196 19.286 12.5148 19.286C8.70223 19.286 5.30969 16.3135 5.30969 12.0162C5.30969 7.88057 8.54068 4.74651 12.5148 4.74651C15.5519 4.74651 17.3936 6.71741 17.3936 6.71741L19.2676 4.74651C19.2676 4.74651 16.7474 2.00016 12.3856 2.00016C6.6344 1.96785 2.24023 6.78203 2.24023 11.9839C2.24023 17.0243 6.37592 22 12.4825 22C17.8783 22 21.7554 18.349 21.7554 12.8886C21.7877 11.7578 21.5939 11.0792 21.5939 11.0792Z"
+                    fill="#dfebed"
                   />
                 </svg>
                 Sign in with Google
