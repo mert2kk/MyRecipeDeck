@@ -9,8 +9,7 @@ if (
   throw new Error('Google Cloud Storage credentials are missing in .env.local')
 }
 
-// 2. Private Key formatını düzelt (En çok hata alınan yer burasıdır!)
-// .env dosyasındaki \n karakterleri bazen string olarak gelir, onları gerçek yeni satıra çeviriyoruz.
+// .env dosyasındaki \n karakterleri bazen string olarak gelir, onları yeni satıra çeviriyoruz.
 const privateKey = process.env.GCS_PRIVATE_KEY.split(String.raw`\n`).join('\n')
 
 // 3. Storage istemcisini başlat
