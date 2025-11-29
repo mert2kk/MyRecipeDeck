@@ -12,6 +12,10 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  --animate-shuffle-left: shuffle-left 2s ease-in-out infinite;
+  --animate-shuffle-right: shuffle-right 2s ease-in-out infinite;
+  --animate-pulse-slow: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 @custom-variant short (@media (max-height: 700px));
 /* Varsayılan Body Ayarları */
@@ -34,4 +38,30 @@ body {
   -ms-overflow-style: none;
   /* Firefox */
   scrollbar-width: none;
+}
+
+@keyframes shuffle-left {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg) scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    /* Sola kay, hafif dön ve netleş */
+    transform: translateX(-50px) rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shuffle-right {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg) scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    /* Sağa kay, hafif dön ve netleş */
+    transform: translateX(50px) rotate(6deg) scale(1);
+    opacity: 1;
+  }
 }

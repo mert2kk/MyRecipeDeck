@@ -14,7 +14,6 @@ const nextConfig = {
             value: 'max-age=63072000; includeSubDomains; preload',
           },
           {
-            // prevent iframing , prevent click jacking
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
           },

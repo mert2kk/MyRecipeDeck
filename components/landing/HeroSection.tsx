@@ -1,7 +1,8 @@
 'use client'
-import { signIn, useSession } from 'next-auth/react' // 1. NextAuth hook'larını ekledik
+import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import RecipeCard from '../recipes/RecipeCard'
+import LoginButton from './LoginButton'
 
 const HeroSection = () => {
   const router = useRouter()
@@ -30,49 +31,7 @@ const HeroSection = () => {
             import from social media in seconds.
           </p>
 
-          <button
-            onClick={handleLogin}
-            disabled={status === 'loading'}
-            className="bg-brand-orange text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition shadow-lg flex items-center gap-2 max-h-[700px]:py-2 short:text-xs disabled:opacity-50"
-          >
-            {status === 'loading' ? (
-              <span>Loading...</span>
-            ) : session ? (
-              <>
-                Go to Recipes
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </>
-            ) : (
-              <>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-2"
-                >
-                  <path
-                    d="M21.5939 11.0792H12.3209V13.8256H18.9768C18.6214 17.6382 15.5196 19.286 12.5148 19.286C8.70223 19.286 5.30969 16.3135 5.30969 12.0162C5.30969 7.88057 8.54068 4.74651 12.5148 4.74651C15.5519 4.74651 17.3936 6.71741 17.3936 6.71741L19.2676 4.74651C19.2676 4.74651 16.7474 2.00016 12.3856 2.00016C6.6344 1.96785 2.24023 6.78203 2.24023 11.9839C2.24023 17.0243 6.37592 22 12.4825 22C17.8783 22 21.7554 18.349 21.7554 12.8886C21.7877 11.7578 21.5939 11.0792 21.5939 11.0792Z"
-                    fill="#dfebed"
-                  />
-                </svg>
-                Sign in with Google
-              </>
-            )}
-          </button>
+          <LoginButton />
         </div>
 
         <div className="relative h-[500px] w-full flex items-center justify-center lg:justify-end z-10 scale-90 lg:scale-100 short:scale-60  ">
