@@ -1,4 +1,4 @@
-import Providers from '@/components/Providers'
+import AuthProvider from '@/components/providers/AuthProvider'
 import type { Metadata } from 'next'
 import { Caveat, Geist, Geist_Mono, Kalam } from 'next/font/google'
 import './globals.css'
@@ -44,7 +44,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} 
         ${kalam.variable} antialiased flex items-start justify-center min-h-screen`}
       >
-        <Providers>{children}</Providers>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   )

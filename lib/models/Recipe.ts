@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const RecipeSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please provide a recipe name."],
-      maxlength: [60, "Name cannot be more than 60 characters."],
+      required: [true, 'Please provide a recipe name.'],
+      maxlength: [60, 'Name cannot be more than 60 characters.'],
     },
     ingredients: [
       {
@@ -21,44 +21,44 @@ const RecipeSchema = new mongoose.Schema(
     category: {
       type: String,
       enum: [
-        "Breakfast",
-        "Main Course",
-        "Dessert",
-        "Soup",
-        "Salad",
-        "Snack",
-        "Drink",
-        "Appetizer",
-        "Pastry",
-        "Sauce",
-        "Diet",
-        "Other",
+        'Breakfast',
+        'Main Course',
+        'Dessert',
+        'Soup',
+        'Salad',
+        'Snack',
+        'Drink',
+        'Appetizer',
+        'Pastry',
+        'Sauce',
+        'Diet',
+        'Other',
       ],
-      required: [true, "Please select a category."],
+      required: [true, 'Please select a category.'],
     },
     badges: [
       {
         type: String,
         enum: [
-          "Vegan",
-          "Vegetarian",
-          "Gluten-Free",
-          "Sugar-Free",
-          "Low-Carb",
-          "High-Protein",
-          "Keto",
-          "Paleo",
-          "Quick (15min)",
-          "Budget-Friendly",
-          "Kid-Friendly",
-          "Spicy",
-          "Traditional",
+          'Vegan',
+          'Vegetarian',
+          'Gluten-Free',
+          'Sugar-Free',
+          'Low-Carb',
+          'High-Protein',
+          'Keto',
+          'Paleo',
+          'Quick (15min)',
+          'Budget-Friendly',
+          'Kid-Friendly',
+          'Spicy',
+          'Traditional',
         ],
       },
     ],
-    chef: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     isFavorite: {
@@ -67,12 +67,12 @@ const RecipeSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   {
     timestamps: true,
-  }
-);
+  },
+)
 
-export default mongoose.models.Recipe || mongoose.model("Recipe", RecipeSchema);
+export default mongoose.models.Recipe || mongoose.model('Recipe', RecipeSchema)
