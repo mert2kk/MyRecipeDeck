@@ -1,18 +1,18 @@
 import RecipeCard from './RecipeCard'
-
-export default function RecipeList() {
+interface RecipeListProps {
+  isFavorite?: Boolean | undefined
+}
+export default function RecipeList({ isFavorite }: RecipeListProps) {
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6  ">
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
+      <RecipeCard isFavorite={isFavorite} />
     </div>
   )
 }

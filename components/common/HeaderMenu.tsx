@@ -37,12 +37,6 @@ export default function HeaderMenu() {
       >
         Track Macros & Calories
       </button>
-      <button
-        className="p-4 font-semibold text-sm cursor-pointer "
-        onClick={() => router.push('/settings')}
-      >
-        Settings
-      </button>
     </div>
   )
 }

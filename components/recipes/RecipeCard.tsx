@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import CardsIcon from '../Icons/CardsIcon'
 import DeckIcon from '../Icons/DeckIcon'
-import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
+import FilledHeartIcon from '../Icons/FilledHeartIcon'
 
 interface RecipeCardProps {
   title?: string
@@ -14,29 +14,44 @@ interface RecipeCardProps {
     serving: string
     kcal: string
   }
-  className?: string // Dışarıdan ekstra stil (gölge, pozisyon vb.) vermek için
+  className?: string
+  isFavorite?: Boolean
 }
 
 export default function RecipeCard({
-  title = 'Pasta alla Vodka', // Varsayılan değer (Veri gelmezse bu yazar)
+  title = 'Pasta alla Vodka',
   image = '/images/Pasta.jpg',
   category = 'Healthy Meals',
   stats = { time: '50', serving: '4', kcal: '450' },
   className = '',
+  isFavorite = false,
 }: RecipeCardProps) {
   const router = useRouter()
 
   return (
     <div
-      // Dışarıdan gelen className'i buraya ekledik ki HeroSection'da pozisyonlayabilelim
       className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative overflow-hidden 
-      border border-gray-300 transition-all duration-300 ease-out
+       transition-all duration-300 ease-out
       hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 group ${className}`}
     >
+      {/* Fav Effect*/}
+      {isFavorite ? (
+        <div className="absolute right-16 top-12 opacity-[0.07] text-brand-dark z-0 pointer-events-none group-hover:scale-400 transition-transform duration-500">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-36 h-36"
+          >
+            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+          </svg>
+        </div>
+      ) : null}
       {/* Fav Button*/}
       <div className="absolute top-4 right-4 z-10">
         <button className="flex items-center justify-center p-1 bg-white/50 hover:bg-white backdrop-blur-sm rounded-full transition-all shadow-sm text-gray-400 hover:text-[#fc4126] hover:scale-110 cursor-pointer">
-          <EmptyHeartIcon />
+          {/* <EmptyHeartIcon /> */}
+          <FilledHeartIcon />
         </button>
       </div>
 
