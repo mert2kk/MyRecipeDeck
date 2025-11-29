@@ -40,7 +40,7 @@ export default function LoginButton() {
           <div className="relative h-24 w-32 mb-8 flex items-end justify-center">
             {/* Card 3 */}
             <div
-              className="absolute h-24 w-32 bg-brand-orange rounded-xl border-2 border-white origin-bottom animate-shuffle-left shadow-lg flex items-center justify-center"
+              className="absolute h-24 w-32 bg-brand-orange rounded-xl border border-white origin-bottom animate-shuffle-left shadow-lg flex items-center justify-center"
               //   style={{ animationDelay: '0.5s' }}
             >
               <svg
@@ -64,7 +64,7 @@ export default function LoginButton() {
 
             {/* Card 2 Middle */}
             <div
-              className="absolute h-24 w-32 bg-brand-orange rounded-xl border-2 border-white origin-bottom animate-shuffle-right shadow-lg flex items-center justify-center "
+              className="absolute h-24 w-32 bg-brand-orange rounded-xl border border-white origin-bottom animate-shuffle-right shadow-lg flex items-center justify-center "
               style={{ animationDirection: 'reverse', animationDuration: '1s' }}
             >
               <svg
@@ -87,7 +87,7 @@ export default function LoginButton() {
             </div>
 
             {/* Card 1 Fixed */}
-            <div className="absolute h-24 w-32 bg-white rounded-xl shadow-2xl border-[3px] border-brand-orange flex items-center justify-center z-10 animate-pulse-slow">
+            <div className="absolute h-24 w-32 bg-brand-orange rounded-xl shadow-2xl border border-white flex items-center justify-center z-10 animate-pulse-slow">
               {/* Logo */}
               <svg
                 width="24"
