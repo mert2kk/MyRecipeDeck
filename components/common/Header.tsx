@@ -3,6 +3,7 @@ import { signOut, useSession } from 'next-auth/react' // 1. NextAuth hook'ların
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import HeaderMenu from './HeaderMenu'
+import UserMenu from './UserMenu'
 
 export default function Header() {
   const router = useRouter()
@@ -27,7 +28,7 @@ export default function Header() {
       <div className="flex flex-col lg:flex-wrap">
         <HeaderMenu />
       </div>
-      {status === 'loading' ? (
+      {/* {status === 'loading' ? (
         <span>Loading...</span>
       ) : session ? (
         <button
@@ -38,7 +39,8 @@ export default function Header() {
         </button>
       ) : (
         <div></div>
-      )}
+      )} */}
+      <UserMenu />
     </div>
   )
 }

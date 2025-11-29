@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "tailwindcss-animate";
 
 /* BURASI ÇOK ÖNEMLİ: v4'te Ayarlar Burada Yapılır */
 @theme {
