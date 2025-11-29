@@ -1,10 +1,11 @@
 'use client'
 
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 export default function LoginButton() {
   const [isLoading, setIsLoading] = useState(false)
+  const { status } = useSession()
 
   const handleLogin = async () => {
     setIsLoading(true)
@@ -30,7 +31,11 @@ export default function LoginButton() {
             fill="#dfebed"
           />
         </svg>
-        <span>Sign in with Google</span>
+        {status === 'authenticated' ? (
+          <span> Go to Recipes</span>
+        ) : (
+          <span>Sign in with Google</span>
+        )}
       </button>
 
       {/* Loading*/}
@@ -65,7 +70,10 @@ export default function LoginButton() {
             {/* Card 2 Middle */}
             <div
               className="absolute h-24 w-32 bg-brand-orange rounded-xl border border-white origin-bottom animate-shuffle-right shadow-lg flex items-center justify-center "
-              style={{ animationDirection: 'reverse', animationDuration: '1s' }}
+              style={{
+                animationDirection: 'reverse',
+                animationDuration: '1s',
+              }}
             >
               <svg
                 width="24"

@@ -1,6 +1,6 @@
 import Providers from '@/components/Providers'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Caveat, Geist, Geist_Mono, Kalam } from 'next/font/google'
 import './globals.css'
 export const metadata: Metadata = {
   title: 'MyRecipeDeck',
@@ -10,11 +10,27 @@ export const metadata: Metadata = {
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  display: 'swap',
+})
+
+const caveat = Caveat({
+  subsets: ['latin'],
+  variable: '--font-caveat',
+  display: 'swap',
+  weight: '600',
+})
+
+const kalam = Kalam({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-kalam',
+  display: 'swap',
 })
 
 export default function RootLayout({
@@ -25,7 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-start justify-center min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} 
+        ${kalam.variable} antialiased flex items-start justify-center min-h-screen`}
       >
         <Providers>{children}</Providers>
       </body>

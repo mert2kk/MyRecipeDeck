@@ -1,32 +1,30 @@
-"use client";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-// İkon importlarını kendi dosya yoluna göre kontrol et
-import CardsIcon from "../Icons/CardsIcon";
-import DeckIcon from "../Icons/DeckIcon";
-import EmptyHeartIcon from "../Icons/EmptyHeartIcon";
+'use client'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import CardsIcon from '../Icons/CardsIcon'
+import DeckIcon from '../Icons/DeckIcon'
+import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 
-// Kartın kabul edeceği veri tiplerini tanımlıyoruz
 interface RecipeCardProps {
-  title?: string;
-  image?: string;
-  category?: string;
+  title?: string
+  image?: string
+  category?: string
   stats?: {
-    time: string;
-    serving: string;
-    kcal: string;
-  };
-  className?: string; // Dışarıdan ekstra stil (gölge, pozisyon vb.) vermek için
+    time: string
+    serving: string
+    kcal: string
+  }
+  className?: string // Dışarıdan ekstra stil (gölge, pozisyon vb.) vermek için
 }
 
 export default function RecipeCard({
-  title = "Pasta alla Vodka", // Varsayılan değer (Veri gelmezse bu yazar)
-  image = "/images/Pasta.jpg",
-  category = "Healthy Meals",
-  stats = { time: "50", serving: "4", kcal: "450" },
-  className = "",
+  title = 'Pasta alla Vodka', // Varsayılan değer (Veri gelmezse bu yazar)
+  image = '/images/Pasta.jpg',
+  category = 'Healthy Meals',
+  stats = { time: '50', serving: '4', kcal: '450' },
+  className = '',
 }: RecipeCardProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div
@@ -60,7 +58,7 @@ export default function RecipeCard({
       <div className="w-[60%] flex flex-col justify-center p-5 pr-6 pl-2">
         <div className="flex flex-col gap-1 mb-1">
           <div className="flex items-center gap-2 text-gray-400 text-xs font-medium cursor-pointer">
-            <span className="">
+            <span>
               <DeckIcon />
             </span>
             <span>{category}</span>
@@ -108,7 +106,7 @@ export default function RecipeCard({
         <div className="flex flex-row items-center justify-between gap-3 mt-auto">
           <button
             className="bg-[#fc4126] hover:bg-[#e03a20] text-[#FFEBD0] py-2.5 px-5 rounded-xl text-xs font-bold transition-all flex-1 shadow-md shadow-orange-100 active:scale-95 cursor-pointer"
-            onClick={() => router.push("/recipes/123")}
+            onClick={() => router.push('/recipes/123')}
           >
             View Recipe
           </button>
@@ -119,5 +117,5 @@ export default function RecipeCard({
         </div>
       </div>
     </div>
-  );
+  )
 }

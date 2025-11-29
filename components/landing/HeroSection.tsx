@@ -1,21 +1,8 @@
 'use client'
-import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 import RecipeCard from '../recipes/RecipeCard'
 import LoginButton from './LoginButton'
 
 const HeroSection = () => {
-  const router = useRouter()
-  const { data: session, status } = useSession()
-
-  const handleLogin = async () => {
-    if (session) {
-      router.push('/recipes')
-      return
-    }
-    await signIn('google', { callbackUrl: '/recipes' })
-  }
-
   return (
     <section
       id="hero-section"

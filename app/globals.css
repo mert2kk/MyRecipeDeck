@@ -16,6 +16,9 @@
   --animate-shuffle-left: shuffle-left 2s ease-in-out infinite;
   --animate-shuffle-right: shuffle-right 2s ease-in-out infinite;
   --animate-pulse-slow: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  --font-caveat: var(--font-caveat), cursive;
+  --font-kalam: var(--font-kalam), cursive;
 }
 @custom-variant short (@media (max-height: 700px));
 /* Varsayılan Body Ayarları */
