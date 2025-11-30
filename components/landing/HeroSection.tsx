@@ -80,9 +80,9 @@ const HeroSection = () => {
         'Blend until smooth and creamy.',
       ],
       tips: ['  Rigatoni or penne sticks to the sauce better than spaghetti.'],
-      preparationTime: 5,
-      servings: 1,
-      kcal: 120,
+      preparationTime: 45,
+      servings: 4,
+      kcal: 420,
       badges: [
         'Vegan',
         'Gluten-Free',

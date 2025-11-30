@@ -30,7 +30,7 @@ export default function UserMenu() {
         {session.user.image ? (
           <img
             src={session.user.image}
-            alt={session.user.name || 'User'}
+            alt={session.user.name?.charAt(0).toUpperCase() || 'User'}
             className="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover pointer-events-none"
           />
         ) : (

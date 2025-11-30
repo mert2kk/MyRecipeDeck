@@ -3,7 +3,6 @@ import { IRecipe } from '@/app/(pages)/recipes/types'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import CardsIcon from '../Icons/CardsIcon'
-import DeckIcon from '../Icons/DeckIcon'
 import FilledHeartIcon from '../Icons/FilledHeartIcon'
 
 interface RecipeCardProps {
@@ -67,13 +66,6 @@ export default function RecipeCard({
       {/* Content */}
       <div className="w-[60%] flex flex-col justify-center p-5 pr-6 pl-2">
         <div className="flex flex-col gap-1 mb-1">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium cursor-pointer">
-            <span>
-              <DeckIcon />
-            </span>
-            <span>Deck</span>
-          </div>
-
           <h2 className="text-[#173B61] font-serif font-bold text-2xl leading-tight group-hover:text-[#fc4126] transition-colors duration-300 line-clamp-2">
             {name}
           </h2>

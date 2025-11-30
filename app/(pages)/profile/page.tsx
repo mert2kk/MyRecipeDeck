@@ -21,7 +21,7 @@ export default async function ProfilePage() {
           {user.image ? (
             <img
               src={user.image}
-              alt={user.username}
+              alt={user.username?.charAt(0).toUpperCase()}
               className="w-full h-full object-cover pointer-events-none"
             />
           ) : (
