@@ -1,8 +1,103 @@
 'use client'
+import { IRecipe } from '@/app/(pages)/recipes/types'
 import RecipeCard from '../recipes/RecipeCard'
 import LoginButton from './LoginButton'
 
 const HeroSection = () => {
+  const designRecipes: IRecipe[] = [
+    {
+      name: 'Blueberry Pancakes',
+      category: 'Breakfast',
+      ingredients: [
+        { name: 'Sourdough Bread', amount: '2 slices' },
+        { name: 'Ripe Avocado', amount: '1 whole' },
+        { name: 'Large Eggs', amount: '2' },
+        { name: 'Chili Flakes', amount: '1 pinch' },
+      ],
+      instructions: [
+        'Toast the sourdough bread slices until golden brown.',
+        'Mash the avocado with a fork and spread it over the toast.',
+        'Poach the eggs in simmering water for 3 minutes.',
+        'Place eggs on top and sprinkle with chili flakes.',
+      ],
+      tips: [
+        'Use fresh organic eggs for the best poaching results.',
+        'Add a squeeze of lime to the avocado to prevent browning.',
+      ],
+      preparationTime: 15,
+      servings: 1,
+      kcal: 450,
+      badges: ['Quick (15min)', 'Healthy'],
+      image: '/images/pancake.jpg',
+
+      isFavorite: false,
+      _id: '',
+      user: '',
+      createdAt: '',
+      updatedAt: '',
+    },
+    {
+      name: 'Greek Salad',
+      category: 'Salad',
+      ingredients: [
+        { name: 'Ground Beef', amount: '500g' },
+        { name: 'Lasagna Sheets', amount: '1 pack' },
+        { name: 'Bechamel Sauce', amount: '2 cups' },
+        { name: 'Mozzarella Cheese', amount: '200g' },
+      ],
+      instructions: [
+        'Sauté the ground beef with onions and tomato sauce.',
+        'Layer the lasagna sheets, meat sauce, and bechamel in a baking dish.',
+        'Top with generous amounts of mozzarella cheese.',
+        'Bake at 180°C for 45 minutes.',
+      ],
+      tips: [
+        'Let it rest for 10 minutes before cutting to keep layers intact.',
+      ],
+      preparationTime: 60,
+      servings: 6,
+      kcal: 350,
+      badges: ['Traditional', 'Kid-Friendly'],
+      image: '/images/salad.jpg',
+      isFavorite: true,
+      user: '',
+      _id: '',
+      createdAt: '',
+      updatedAt: '',
+    },
+    {
+      name: 'Pasta Alla Vodka',
+      category: 'Main Course',
+      ingredients: [
+        { name: 'Spinach', amount: '1 handful' },
+        { name: 'Green Apple', amount: '1' },
+        { name: 'Lemon Juice', amount: '1/2 lemon' },
+        { name: 'Ginger', amount: '1 small piece' },
+      ],
+      instructions: [
+        'Wash all ingredients thoroughly.',
+        'Place everything into a high-speed blender.',
+        'Blend until smooth and creamy.',
+      ],
+      tips: ['  Rigatoni or penne sticks to the sauce better than spaghetti.'],
+      preparationTime: 5,
+      servings: 1,
+      kcal: 120,
+      badges: [
+        'Vegan',
+        'Gluten-Free',
+        'Sugar-Free',
+        'Quick (15min)',
+        'Healthy',
+      ],
+      image: '/images/Pasta.jpg',
+      isFavorite: false,
+      user: '',
+      _id: '',
+      createdAt: '',
+      updatedAt: '',
+    },
+  ]
   return (
     <section
       id="hero-section"
@@ -25,21 +120,15 @@ const HeroSection = () => {
           {/* Card 3 */}
           <div className="absolute w-full max-w-[500px] transform -translate-x-12 translate-y-8 -rotate-3 opacity-70 blur-[1px]">
             <RecipeCard
-              title="Blueberry Pancakes"
-              category="Greens"
-              image="/images/pancake.jpg"
-              stats={{ time: '15', serving: '2', kcal: '320' }}
-              className="pointer-events-none shadow-none"
+              recipe={designRecipes[0]}
+              className="pointer-events-none shadow-md"
             />
           </div>
 
           {/* CARD 2 */}
           <div className="absolute w-full max-w-[500px] transform translate-x-6 translate-y-4 rotate-2 opacity-90 z-20">
             <RecipeCard
-              title=""
-              category="Greek Salad"
-              image="/images/salad.jpg"
-              stats={{ time: '20', serving: '4', kcal: '580' }}
+              recipe={designRecipes[1]}
               className="pointer-events-none shadow-md"
             />
           </div>
@@ -47,10 +136,7 @@ const HeroSection = () => {
           {/* card 1 */}
           <div className="absolute w-full max-w-[500px] transform  hover:rotate-8 rotate-4 -translate-y-6 transition-transform duration-500 z-30">
             <RecipeCard
-              title="Pasta alla Vodka"
-              category="Main Dish"
-              image="/images/Pasta.jpg"
-              stats={{ time: '50', serving: '4', kcal: '450' }}
+              recipe={designRecipes[2]}
               className="shadow-2xl pointer-events-none"
             />
           </div>
