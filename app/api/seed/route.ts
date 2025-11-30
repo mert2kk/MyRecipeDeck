@@ -6,9 +6,6 @@ import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
 import { authOptions } from '../auth/[...nextauth]/route'
 
-// Senin tanımladığın tiplerle uyumlu veri yapısı
-// (Not: _id, createdAt ve updatedAt MongoDB tarafından otomatik oluşturulur,
-// o yüzden buradaki input verisine dahil etmiyoruz)
 const getMockRecipes = (userId: string) => [
   {
     name: 'Avocado & Poached Egg Toast',
@@ -34,7 +31,7 @@ const getMockRecipes = (userId: string) => [
     kcal: 450,
     badges: ['Vegetarian', 'Quick (15min)', 'Healthy'], // RecipeBadge tipine uygun
     image:
-      'https://images.unsplash.com/photo-1525351484163-7529414395d8?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1559753475-d6165680861f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     isFavorite: false,
     user: userId,
   },
@@ -59,7 +56,7 @@ const getMockRecipes = (userId: string) => [
     kcal: 750,
     badges: ['Traditional', 'Kid-Friendly'],
     image:
-      'https://images.unsplash.com/photo-1574868235805-6527663f790c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=80',
     isFavorite: true, // Bunu favori yapalım
     user: userId,
   },
@@ -106,7 +103,7 @@ const getMockRecipes = (userId: string) => [
     kcal: 500,
     badges: ['High-Protein', 'Keto', 'Paleo', 'Gluten-Free', 'Healthy'],
     image:
-      'https://images.unsplash.com/photo-1467003909585-2f8a7270028d?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1622123268092-d99ea535491e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FsbW9uJTIwYXNwYXJhZ3VzfGVufDB8fDB8fHww',
     isFavorite: false,
     user: userId,
   },
@@ -130,7 +127,7 @@ const getMockRecipes = (userId: string) => [
     kcal: 320,
     badges: ['Vegan', 'Sugar-Free', 'Kid-Friendly'],
     image:
-      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1636743715220-d8f8dd900b87?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJvd25pZXxlbnwwfHwwfHx8MA%3D%3D',
     isFavorite: false,
     user: userId,
   },
@@ -164,7 +161,7 @@ export async function GET() {
     const recipes = getMockRecipes(currentUser._id)
 
     // Temiz bir sayfa için eski tariflerini silebiliriz (İsteğe bağlı)
-    // await Recipe.deleteMany({ user: currentUser._id });
+    await Recipe.deleteMany({ user: currentUser._id })
 
     await Recipe.insertMany(recipes)
 
