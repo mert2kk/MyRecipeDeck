@@ -1,5 +1,6 @@
 // app/api/seed/route.ts
 import dbConnect from '@/lib/db'
+import Deck from '@/lib/models/Deck'
 import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
@@ -133,6 +134,31 @@ const getMockRecipes = (userId: string) => [
   },
 ]
 
+const getMockDecks = (userId: string) => [
+  {
+    name: 'Quick & Easy Dinners',
+    description:
+      'Perfect for busy weeknights when you need something delicious in under 30 minutes.',
+    coverImage:
+      'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80',
+    user: userId,
+    recipes: [
+      '692c9bd80a90e0e6cdf0f8bf',
+      '692c9bd80a90e0e6cdf0f8ba',
+      '692c9bd80a90e0e6cdf0f8c4',
+    ],
+  },
+  {
+    name: 'Healthy Greens',
+    description:
+      'Nutritious and fresh recipes to keep your energy high and body happy.',
+    coverImage:
+      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
+    user: userId,
+    recipes: ['692c9bd80a90e0e6cdf0f8b0', '692c9bd80a90e0e6cdf0f8ba'],
+  },
+]
+
 export async function GET() {
   try {
     await dbConnect()
@@ -159,14 +185,17 @@ export async function GET() {
 
     // 3. Verileri Hazırla ve Yükle
     const recipes = getMockRecipes(currentUser._id)
+    const decks = getMockDecks(currentUser._id)
 
     // Temiz bir sayfa için eski tariflerini silebiliriz (İsteğe bağlı)
     await Recipe.deleteMany({ user: currentUser._id })
+    await Deck.deleteMany({ user: currentUser._id })
 
     await Recipe.insertMany(recipes)
+    await Deck.insertMany(decks)
 
     return NextResponse.json({
-      message: `Başarılı! ${currentUser.username} hesabına 5 adet tam uyumlu tarif eklendi.`,
+      message: `Başarılı! ${currentUser.username} hesabına 5 adet tam uyumlu tarif eklendi. ve 2 deck`,
       count: recipes.length,
     })
   } catch (error: any) {

@@ -5,7 +5,7 @@ import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
-import { IRecipe } from './types'
+import { IRecipe } from '../../types/recipe'
 
 export default async function page() {
   const session = await getServerSession(authOptions)

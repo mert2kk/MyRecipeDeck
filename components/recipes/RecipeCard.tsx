@@ -1,8 +1,9 @@
 'use client'
-import { IRecipe } from '@/app/(pages)/recipes/types'
+import { IRecipe } from '@/app/types/recipe'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import CardsIcon from '../Icons/CardsIcon'
+import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import FilledHeartIcon from '../Icons/FilledHeartIcon'
 
 interface RecipeCardProps {
@@ -44,8 +45,7 @@ export default function RecipeCard({
       {/* Fav Button*/}
       <div className="absolute top-4 right-4 z-10">
         <button className="flex items-center justify-center p-1 bg-white/50 hover:bg-white backdrop-blur-sm rounded-full transition-all shadow-sm text-gray-400 hover:text-[#fc4126] hover:scale-110 cursor-pointer">
-          {/* <EmptyHeartIcon /> */}
-          <FilledHeartIcon />
+          {isFavorite ? <FilledHeartIcon /> : <EmptyHeartIcon />}
         </button>
       </div>
 

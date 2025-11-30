@@ -1,21 +1,13 @@
-import RightArrow from "../Icons/RightArrow";
-import ThreeDots from "../Icons/ThreeDots";
+import { IDeck } from '@/app/types/deck'
+import RightArrow from '../Icons/RightArrow'
+import ThreeDots from '../Icons/ThreeDots'
 
 interface RecipeDeckProps {
-  title?: string;
-  image?: string;
-  BadgeTags?: string[];
-  RecipeNumber: string;
-  className?: string;
+  deck: IDeck
+  className?: string
 }
 
-export default function RecipeDeck({
-  title = "Healthy Meals",
-  image = "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80",
-  BadgeTags = ["Healthy", "Vegan"],
-  RecipeNumber = "12",
-  className = "",
-}: RecipeDeckProps) {
+export default function RecipeDeck({ deck, className = '' }: RecipeDeckProps) {
   const cards = [
     { top: -6, left: 4, rotate: -12, opacity: 80 },
     { top: -3, left: -5, rotate: 10, opacity: 75 },
@@ -27,8 +19,8 @@ export default function RecipeDeck({
     { top: -4, left: -1, rotate: -9, opacity: 60 },
     { top: 6, left: 1, rotate: 7, opacity: 55 },
     { top: 1, left: -4, rotate: -4, opacity: 50 },
-  ];
-
+  ]
+  const { name, description, recipes, user, coverImage, _id } = deck
   return (
     <div className={`relative w-full h-80 max-w-[450px] ${className}`}>
       {/* Deck Effect */}
@@ -49,7 +41,7 @@ export default function RecipeDeck({
         {/* --- IMAGE SECTION (Sadece Zoom Efekti) --- */}
         <div className="h-[60%] w-full relative overflow-hidden">
           <img
-            src={image}
+            src={coverImage}
             alt="Deck Cover"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
@@ -62,28 +54,28 @@ export default function RecipeDeck({
         </div>
 
         {/* --- CONTENT SECTION --- */}
-        <a href="/decks/123">
+        <a href={`/decks/${_id}`}>
           <div className="flex-1 p-5 flex flex-col justify-between">
             <div>
               <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                {title}
+                {name}
               </h3>
 
               {/* Text Tags */}
-              <div className="mt-3 flex flex-wrap gap-2">
+              {/* <div className="mt-3 flex flex-wrap gap-2">
                 <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
                   {BadgeTags[0]}
                 </span>
                 <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
                   {BadgeTags[1]}
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/*Footer */}
             <div className="flex items-center justify-between pt-4">
               <span className="text-sm font-semibold text-gray-500">
-                {RecipeNumber} Recipe Cards
+                {recipes?.length} Recipe Cards
               </span>
 
               {/* Arrow Icon */}
@@ -95,5 +87,5 @@ export default function RecipeDeck({
         </a>
       </div>
     </div>
-  );
+  )
 }

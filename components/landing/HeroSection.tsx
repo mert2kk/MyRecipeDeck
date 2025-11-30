@@ -1,5 +1,5 @@
 'use client'
-import { IRecipe } from '@/app/(pages)/recipes/types'
+import { IRecipe } from '../../app/types/recipe'
 import RecipeCard from '../recipes/RecipeCard'
 import LoginButton from './LoginButton'
 

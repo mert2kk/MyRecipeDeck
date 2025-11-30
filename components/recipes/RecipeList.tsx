@@ -1,4 +1,4 @@
-import { IRecipe } from '@/app/(pages)/recipes/types'
+import { IRecipe } from '@/app/types/recipe'
 import RecipeCard from './RecipeCard'
 
 interface RecipeListProps {

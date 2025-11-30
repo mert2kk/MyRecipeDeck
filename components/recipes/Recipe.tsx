@@ -1,16 +1,9 @@
 import Image from 'next/image'
-import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 
 export default function Recipe() {
   return (
     <div className=" bg-[#7697a000] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row items-center relative  ">
-      <h1 className="text-black  text-sm font-bold absolute left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer">
-        <span>
-          <DeckIcon />
-        </span>
-        Healthy Meals
-      </h1>
       <button className="absolute top-0 right-0 m-4 cursor-pointer">
         {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />
