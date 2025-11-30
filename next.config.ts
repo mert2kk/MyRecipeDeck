@@ -1,4 +1,20 @@
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com', // 1. Mock Data (Unsplash) resimleri için
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com', // 2. Google Profil fotoları için (Auth)
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com', // 3. İleride GCS'ye yükleyeceğin resimler için
+      },
+    ],
+  },
   async headers() {
     return [
       {

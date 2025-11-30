@@ -53,6 +53,7 @@ const RecipeSchema = new mongoose.Schema(
           'Kid-Friendly',
           'Spicy',
           'Traditional',
+          'Healthy',
         ],
       },
     ],

@@ -1,4 +1,5 @@
 'use client'
+import { IRecipe } from '@/app/(pages)/recipes/types'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import CardsIcon from '../Icons/CardsIcon'
@@ -6,28 +7,22 @@ import DeckIcon from '../Icons/DeckIcon'
 import FilledHeartIcon from '../Icons/FilledHeartIcon'
 
 interface RecipeCardProps {
-  title?: string
-  image?: string
-  category?: string
-  stats?: {
-    time: string
-    serving: string
-    kcal: string
-  }
+  recipe: IRecipe
   className?: string
-  isFavorite?: Boolean
+  isFavoriteList?: Boolean
 }
 
 export default function RecipeCard({
-  title = 'Pasta alla Vodka',
-  image = '/images/Pasta.jpg',
-  category = 'Healthy Meals',
-  stats = { time: '50', serving: '4', kcal: '450' },
+  recipe,
   className = '',
-  isFavorite = false,
+  isFavoriteList = false,
 }: RecipeCardProps) {
   const router = useRouter()
-
+  if (!recipe) {
+    return null // veya <div className="skeleton...">Loading...</div>
+  }
+  const { name, category, image, preparationTime, servings, kcal, isFavorite } =
+    recipe
   return (
     <div
       className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative overflow-hidden 
@@ -35,7 +30,7 @@ export default function RecipeCard({
       hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 group ${className}`}
     >
       {/* Fav Effect*/}
-      {isFavorite ? (
+      {isFavoriteList ? (
         <div className="absolute right-16 top-12 opacity-[0.07] text-brand-dark z-0 pointer-events-none group-hover:scale-400 transition-transform duration-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +54,8 @@ export default function RecipeCard({
       <div className="w-[40%] relative p-3 flex items-center justify-center">
         <div className="relative w-full h-full min-h-[180px] rounded-2xl overflow-hidden shadow-sm">
           <Image
-            src={image}
-            alt={title}
+            src={image && image.length > 0 ? image : '/images/Pasta.jpg'}
+            alt={name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-700"
             draggable="false"
@@ -76,14 +71,14 @@ export default function RecipeCard({
             <span>
               <DeckIcon />
             </span>
-            <span>{category}</span>
+            <span>Deck</span>
           </div>
 
           <h2 className="text-[#173B61] font-serif font-bold text-2xl leading-tight group-hover:text-[#fc4126] transition-colors duration-300 line-clamp-2">
-            {title}
+            {name}
           </h2>
           <span className="text-[#fc4126] uppercase font-bold text-[10px] tracking-wide group-hover:text-[#173B61] ">
-            Main Dish
+            {category}
           </span>
         </div>
 
@@ -91,7 +86,7 @@ export default function RecipeCard({
         <div className="flex items-center gap-6 my-4 border-b border-dashed border-gray-100 pb-4">
           <div className="flex flex-col">
             <span className="text-[#173B61] font-bold text-lg leading-none">
-              {stats.time}
+              {preparationTime}
             </span>
             <span className="text-gray-400 text-[10px] font-medium uppercase mt-1">
               Mins
@@ -100,7 +95,7 @@ export default function RecipeCard({
           <div className="w-px h-8 bg-gray-100"></div>
           <div className="flex flex-col">
             <span className="text-[#173B61] font-bold text-lg leading-none">
-              {stats.serving}
+              {servings}
             </span>
             <span className="text-gray-400 text-[10px] font-medium uppercase mt-1">
               Serving
@@ -109,7 +104,7 @@ export default function RecipeCard({
           <div className="w-px h-8 bg-gray-100"></div>
           <div className="flex flex-col">
             <span className="text-[#173B61] font-bold text-lg leading-none">
-              {stats.kcal}
+              {kcal}
             </span>
             <span className="text-gray-400 text-[10px] font-medium uppercase mt-1">
               Kcal

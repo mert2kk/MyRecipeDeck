@@ -8,7 +8,7 @@ export default function page() {
         My Favorite Recipes
       </h1>
 
-      <RecipeList isFavorite={true} />
+      <RecipeList isFavoriteList={true} />
     </div>
   )
 }
