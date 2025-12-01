@@ -5,7 +5,6 @@ import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
-import { IRecipe } from '../../types/recipe'
 
 export default async function page() {
   const session = await getServerSession(authOptions)
@@ -19,20 +18,7 @@ export default async function page() {
 
   //Clear data
 
-  const recipes = rawRecipes.map((recipe: any) => ({
-    ...recipe,
-    _id: recipe._id.toString(), // ObjectId -> String
-    user: recipe.user.toString(), // ObjectId -> String
-    createdAt: recipe.createdAt?.toISOString(), // Date -> String
-    updatedAt: recipe.updatedAt?.toISOString(), // Date -> String
-    ingredients:
-      recipe.ingredients?.map((ing: any) => ({
-        ...ing,
-        _id: ing._id ? ing._id.toString() : undefined, // Eğer subdoc ID varsa
-      })) || [],
-  })) as IRecipe[]
-
-  const recipeCount = await Recipe.countDocuments({ user: user._id })
+  const recipes = JSON.parse(JSON.stringify(rawRecipes))
 
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">

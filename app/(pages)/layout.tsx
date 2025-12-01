@@ -9,7 +9,7 @@ export default function PagesLayout({
     <div className="flex flex-col min-h-screen w-full">
       <Header />
 
-      <main className="flex items-center justify-center min-h-[calc(100vh-112px)] p-4 pt-8 w-full ">
+      <main className="flex items-center justify-center min-h-[calc(100vh-112px)] p-4 pt-8 lg:p-0 md:pt-0 w-full  relative">
         {children}
       </main>
     </div>

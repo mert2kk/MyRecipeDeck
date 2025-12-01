@@ -20,6 +20,7 @@ export default function RecipeDeck({ deck, className = '' }: RecipeDeckProps) {
     { top: 6, left: 1, rotate: 7, opacity: 55 },
     { top: 1, left: -4, rotate: -4, opacity: 50 },
   ]
+  if (!deck) return null
   const { name, description, recipes, user, coverImage, _id } = deck
   return (
     <div className={`relative w-full h-80 max-w-[450px] ${className}`}>
@@ -64,10 +65,10 @@ export default function RecipeDeck({ deck, className = '' }: RecipeDeckProps) {
               {/* Text Tags */}
               {/* <div className="mt-3 flex flex-wrap gap-2">
                 <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
-                  {BadgeTags[0]}
+                  Healthy
                 </span>
                 <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-md border border-dotted border-[#7697a0]">
-                  {BadgeTags[1]}
+                  Quick
                 </span>
               </div> */}
             </div>

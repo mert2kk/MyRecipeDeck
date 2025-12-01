@@ -1,4 +1,3 @@
-// app/api/seed/route.ts
 import dbConnect from '@/lib/db'
 import Deck from '@/lib/models/Deck'
 import Recipe from '@/lib/models/Recipe'
@@ -10,193 +9,136 @@ import { authOptions } from '../auth/[...nextauth]/route'
 const getMockRecipes = (userId: string) => [
   {
     name: 'Avocado & Poached Egg Toast',
-    category: 'Breakfast', // Senin RecipeCategory tipine uygun
+    category: 'Breakfast',
     ingredients: [
       { name: 'Sourdough Bread', amount: '2 slices' },
       { name: 'Ripe Avocado', amount: '1 whole' },
-      { name: 'Large Eggs', amount: '2' },
-      { name: 'Chili Flakes', amount: '1 pinch' },
     ],
-    instructions: [
-      'Toast the sourdough bread slices until golden brown.',
-      'Mash the avocado with a fork and spread it over the toast.',
-      'Poach the eggs in simmering water for 3 minutes.',
-      'Place eggs on top and sprinkle with chili flakes.',
-    ],
-    tips: [
-      'Use fresh organic eggs for the best poaching results.',
-      'Add a squeeze of lime to the avocado to prevent browning.',
-    ],
+    instructions: ['Toast bread', 'Mash avocado'],
     preparationTime: 15,
-    servings: 1, // Interface'de 'servings' çoğul tanımlı
+    servings: 1,
     kcal: 450,
-    badges: ['Vegetarian', 'Quick (15min)', 'Healthy'], // RecipeBadge tipine uygun
+    badges: ['Vegetarian', 'Quick (15min)'],
     image:
-      'https://images.unsplash.com/photo-1559753475-d6165680861f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1559753475-d6165680861f?q=80&w=1740&auto=format&fit=crop',
     isFavorite: false,
     user: userId,
   },
   {
     name: 'Classic Beef Lasagna',
     category: 'Main Course',
-    ingredients: [
-      { name: 'Ground Beef', amount: '500g' },
-      { name: 'Lasagna Sheets', amount: '1 pack' },
-      { name: 'Bechamel Sauce', amount: '2 cups' },
-      { name: 'Mozzarella Cheese', amount: '200g' },
-    ],
-    instructions: [
-      'Sauté the ground beef with onions and tomato sauce.',
-      'Layer the lasagna sheets, meat sauce, and bechamel in a baking dish.',
-      'Top with generous amounts of mozzarella cheese.',
-      'Bake at 180°C for 45 minutes.',
-    ],
-    tips: ['Let it rest for 10 minutes before cutting to keep layers intact.'],
+    ingredients: [{ name: 'Ground Beef', amount: '500g' }],
+    instructions: ['Bake at 180°C'],
     preparationTime: 60,
     servings: 6,
     kcal: 750,
-    badges: ['Traditional', 'Kid-Friendly'],
+    badges: ['Traditional'],
     image:
       'https://images.unsplash.com/photo-1619895092538-128341789043?auto=format&fit=crop&w=800&q=80',
-    isFavorite: true, // Bunu favori yapalım
+    isFavorite: true,
     user: userId,
   },
   {
     name: 'Green Detox Smoothie',
     category: 'Drink',
-    ingredients: [
-      { name: 'Spinach', amount: '1 handful' },
-      { name: 'Green Apple', amount: '1' },
-      { name: 'Lemon Juice', amount: '1/2 lemon' },
-      { name: 'Ginger', amount: '1 small piece' },
-    ],
-    instructions: [
-      'Wash all ingredients thoroughly.',
-      'Place everything into a high-speed blender.',
-      'Blend until smooth and creamy.',
-    ],
-    tips: ['Add ice cubes for a colder, fresher taste.'],
+    ingredients: [{ name: 'Spinach', amount: '1 handful' }],
+    instructions: ['Blend everything'],
     preparationTime: 5,
     servings: 1,
     kcal: 120,
-    badges: ['Vegan', 'Gluten-Free', 'Sugar-Free', 'Quick (15min)', 'Healthy'],
+    badges: ['Vegan', 'Healthy'],
     image:
       'https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=800&q=80',
     isFavorite: false,
     user: userId,
   },
   {
-    name: 'Grilled Salmon with Asparagus',
+    name: 'Grilled Salmon',
     category: 'Main Course',
-    ingredients: [
-      { name: 'Salmon Fillet', amount: '2 pieces' },
-      { name: 'Asparagus', amount: '1 bunch' },
-      { name: 'Olive Oil', amount: '2 tbsp' },
-      { name: 'Garlic', amount: '2 cloves' },
-    ],
-    instructions: [
-      'Season the salmon with salt, pepper, and garlic.',
-      'Grill the salmon for 4-5 minutes per side.',
-      'Sauté the asparagus in olive oil until tender.',
-    ],
+    ingredients: [{ name: 'Salmon', amount: '200g' }],
+    instructions: ['Grill it'],
     preparationTime: 25,
     servings: 2,
     kcal: 500,
-    badges: ['High-Protein', 'Keto', 'Paleo', 'Gluten-Free', 'Healthy'],
+    badges: ['High-Protein'],
     image:
-      'https://images.unsplash.com/photo-1622123268092-d99ea535491e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FsbW9uJTIwYXNwYXJhZ3VzfGVufDB8fDB8fHww',
+      'https://images.unsplash.com/photo-1622123268092-d99ea535491e?w=500&auto=format&fit=crop',
     isFavorite: false,
     user: userId,
   },
   {
-    name: 'Vegan Chocolate Brownie',
+    name: 'Vegan Brownie',
     category: 'Dessert',
-    ingredients: [
-      { name: 'Oat Flour', amount: '2 cups' },
-      { name: 'Cocoa Powder', amount: '1/2 cup' },
-      { name: 'Maple Syrup', amount: '1/2 cup' },
-      { name: 'Coconut Oil', amount: '1/3 cup' },
-    ],
-    instructions: [
-      'Mix all dry ingredients in a large bowl.',
-      'Add the wet ingredients and stir until combined.',
-      'Pour into a baking tray and bake for 25 minutes at 180°C.',
-    ],
-    tips: ['Do not overbake if you want them fudgy!'],
+    ingredients: [{ name: 'Cocoa', amount: '50g' }],
+    instructions: ['Bake it'],
     preparationTime: 40,
     servings: 8,
     kcal: 320,
-    badges: ['Vegan', 'Sugar-Free', 'Kid-Friendly'],
+    badges: ['Vegan'],
     image:
-      'https://images.unsplash.com/photo-1636743715220-d8f8dd900b87?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJvd25pZXxlbnwwfHwwfHx8MA%3D%3D',
+      'https://images.unsplash.com/photo-1636743715220-d8f8dd900b87?w=500&auto=format&fit=crop',
     isFavorite: false,
     user: userId,
   },
 ]
 
-const getMockDecks = (userId: string) => [
+const getMockDecks = (userId: string, insertedRecipes: any[]) => [
   {
     name: 'Quick & Easy Dinners',
-    description:
-      'Perfect for busy weeknights when you need something delicious in under 30 minutes.',
+    description: 'Perfect for busy weeknights.',
     coverImage:
       'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80',
     user: userId,
+    // BURASI DÜZELDİ: Hardcoded string yerine, eklenen tariflerin gerçek _id'lerini alıyoruz
     recipes: [
-      '692c9bd80a90e0e6cdf0f8bf',
-      '692c9bd80a90e0e6cdf0f8ba',
-      '692c9bd80a90e0e6cdf0f8c4',
+      insertedRecipes[0]._id, // Avocado Toast
+      insertedRecipes[2]._id, // Smoothie
+      insertedRecipes[3]._id, // Salmon
     ],
   },
   {
     name: 'Healthy Greens',
-    description:
-      'Nutritious and fresh recipes to keep your energy high and body happy.',
+    description: 'Nutritious and fresh recipes.',
     coverImage:
       'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
     user: userId,
-    recipes: ['692c9bd80a90e0e6cdf0f8b0', '692c9bd80a90e0e6cdf0f8ba'],
+    recipes: [
+      insertedRecipes[2]._id, // Smoothie
+      insertedRecipes[0]._id, // Avocado Toast
+    ],
   },
 ]
 
 export async function GET() {
   try {
     await dbConnect()
-
-    // 1. Session Kontrolü
     const session = await getServerSession(authOptions)
 
     if (!session || !session.user?.email) {
-      return NextResponse.json(
-        { error: '⛔ Lütfen önce siteye giriş yapın.' },
-        { status: 401 },
-      )
+      return NextResponse.json({ error: 'Giriş yapmalısınız' }, { status: 401 })
     }
 
-    // 2. User ID Bulma
     const currentUser = await User.findOne({ email: session.user.email })
+    if (!currentUser)
+      return NextResponse.json({ error: 'Kullanıcı yok' }, { status: 404 })
 
-    if (!currentUser) {
-      return NextResponse.json(
-        { error: 'Kullanıcı bulunamadı.' },
-        { status: 404 },
-      )
-    }
-
-    // 3. Verileri Hazırla ve Yükle
-    const recipes = getMockRecipes(currentUser._id)
-    const decks = getMockDecks(currentUser._id)
-
-    // Temiz bir sayfa için eski tariflerini silebiliriz (İsteğe bağlı)
     await Recipe.deleteMany({ user: currentUser._id })
     await Deck.deleteMany({ user: currentUser._id })
 
-    await Recipe.insertMany(recipes)
+    // 2. Tarifleri hazırla
+    const rawRecipes = getMockRecipes(currentUser._id)
+
+    // 3. Tarifleri Ekle ve GERÇEK VERİLERİ (ID'leri ile birlikte) bir değişkene ata
+    const insertedRecipes = await Recipe.insertMany(rawRecipes)
+
+    // 4. Deck'leri bu gerçek recipe dataları ile oluştur
+    const decks = getMockDecks(currentUser._id, insertedRecipes)
+
+    // 5. Deck'leri ekle
     await Deck.insertMany(decks)
 
     return NextResponse.json({
-      message: `Başarılı! ${currentUser.username} hesabına 5 adet tam uyumlu tarif eklendi. ve 2 deck`,
-      count: recipes.length,
+      message: `Başarılı! ${insertedRecipes.length} tarif ve ${decks.length} deck oluşturuldu. İlişkiler kuruldu.`,
     })
   } catch (error: any) {
     console.error('Seed hatası:', error)

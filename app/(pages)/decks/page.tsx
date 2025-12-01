@@ -18,23 +18,14 @@ export default async function Page() {
     })
     .lean()
 
-  const decks = rawDecks.map((deck: any) => ({
-    ...deck,
-    _id: deck._id.toString(),
-    recipes: deck.recipes.map((recipe: any) => ({
-      _id: recipe.toString(),
-    })),
-    user: deck.user.toString(),
-    createdAt: deck.createdAt?.toISOString(), // Date -> String
-    updatedAt: deck.updatedAt?.toISOString(), // Date -> String
-  })) as IDeck[]
+  const decks = JSON.parse(JSON.stringify(rawDecks)) as IDeck[]
 
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">
       <h1 className="font-bold text-3xl text-gray-800 font-kalam ">
         My Recipe Decks
       </h1>
-      {decks.length === 0 ? (
+      {decks.length === 0 || !decks ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           {/* Ikon Alanı - Yatay Kart Destesi */}
           <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-6">
