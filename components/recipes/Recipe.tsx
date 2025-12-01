@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
+import BackButton from '../ui/BackButton'
 
 export default function Recipe() {
   return (
     <div className=" bg-[#7697a000] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row items-center relative  ">
+      <div className="absolute left-2 top-2">
+        <BackButton />
+      </div>
       <button className="absolute top-0 right-0 m-4 cursor-pointer">
         {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />

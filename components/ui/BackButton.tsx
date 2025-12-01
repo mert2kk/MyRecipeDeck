@@ -11,21 +11,18 @@ export default function BackButton() {
       className="
         group
         flex items-center justify-center
-        w-12 h-9 
-        bg-white/70 backdrop-blur-md
-        border border-gray-200/50
+        w-12 h-12 
         rounded-xl
-        shadow-sm  hover:shadow-brand-dark/40
         transition-all duration-300 ease-out
-        hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-x-0.5
-        active:scale-95
+        hover:-translate-x-1.5
+        cursor-pointer
       "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={2.5}
+        strokeWidth={4}
         stroke="currentColor"
         className="w-4 h-4 text-gray-600 transition-colors group-hover:text-gray-900"
       >

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import ServiceBellIcon from '../Icons/ServiceBellIcon'
-import AddCollectionMenu from './AddDeckMenu'
+import AddDeckMenu from './AddDeckMenu'
 
 export default function RecipeForm() {
   const [title, setTitle] = useState('')
@@ -20,13 +20,7 @@ export default function RecipeForm() {
 
   return (
     <div className="bg-[#7697a000] flex flex-col rounded-lg p-4 xl:h-full xl:flex-row relative items-center">
-      <h1 className="text-black  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer absolute ">
-        <span className="flex flex-row text-white relative">
-          <DeckIcon />
-          <p className="absolute pt-0.5 right-0.5">+</p>
-        </span>
-        <AddCollectionMenu />
-      </h1>
+      <div className="absolute left-2 top-2">X</div>
       <button className="absolute top-0 right-0 m-4 cursor-pointer">
         {/* <FilledHeartIcon /> */}
         <EmptyHeartIcon />
@@ -93,6 +87,13 @@ export default function RecipeForm() {
           <div className="flex flex-col justify-center items-center">
             <p className="font-semibold text-gray-600 pb-4">Dish Type</p>
           </div>
+          <h1 className="text-black  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer ">
+            <span className="flex flex-row text-white relative">
+              <DeckIcon />
+              <p className="absolute pt-0.5 right-0.5">+</p>
+            </span>
+            <AddDeckMenu />
+          </h1>
         </div>
       </div>
       {/* Right Side (Form Fields) */}
