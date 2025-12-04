@@ -7,11 +7,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'lh3.googleusercontent.com', // 2. Google Profil fotoları için (Auth)
+        hostname: '*.googleusercontent.com', // 2. Google Profil fotoları
       },
       {
         protocol: 'https',
-        hostname: 'storage.googleapis.com', // 3. İleride GCS'ye yükleyeceğin resimler için
+        hostname: 'storage.googleapis.com', // 3. İleride GCS resimleri için
       },
     ],
   },

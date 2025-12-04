@@ -58,6 +58,8 @@ export default function RecipeCard({
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-700"
             draggable="false"
+            sizes="200"
+            priority
           />
           <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
         </div>
