@@ -23,6 +23,7 @@ export default function Header() {
         height={100}
         alt="logo"
         className="ml-10 p-2"
+        priority
         onClick={() => router.push('/recipes')}
       />
       <div className="flex flex-col lg:flex-wrap">

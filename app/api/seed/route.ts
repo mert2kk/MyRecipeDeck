@@ -4,7 +4,7 @@ import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
-import { authOptions } from '../auth/[...nextauth]/route'
+import { authOptions } from '../../services/authService'
 
 const getMockRecipes = (userId: string) => [
   {

@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/services/authService'
 import { IDeck } from '@/app/types/deck'
 import RecipeDecks from '@/components/decks/RecipeDecks'
 import dbConnect from '@/lib/db'

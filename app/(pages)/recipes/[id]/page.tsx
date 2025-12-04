@@ -1,3 +1,4 @@
+import { getRecipe } from '@/app/services/recipeService'
 import KnifeForkIcon from '@/components/Icons/KnifeForkIcon'
 import Recipe from '@/components/recipes/Recipe'
 
@@ -7,6 +8,7 @@ export default async function RecipeDetailPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
+  const recipe = await getRecipe(id)
 
   return (
     <div
@@ -19,7 +21,7 @@ export default async function RecipeDetailPage({
          hover:backdrop-brightness-102"
     >
       <div className="overflow-auto h-full">
-        <Recipe />
+        <Recipe recipe={recipe} />
       </div>
       <a
         href={`/recipes/${id}/edit`}

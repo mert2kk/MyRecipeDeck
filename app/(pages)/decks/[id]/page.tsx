@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/services/authService'
 import RecipeList from '@/components/recipes/RecipeList'
 import BackButton from '@/components/ui/BackButton'
 import dbConnect from '@/lib/db'

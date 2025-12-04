@@ -110,7 +110,7 @@ export default function RecipeCard({
         <div className="flex flex-row items-center justify-between gap-3 mt-auto">
           <button
             className="bg-[#fc4126] hover:bg-[#e03a20] text-[#FFEBD0] py-2.5 px-5 rounded-xl text-xs font-bold transition-all flex-1 shadow-md shadow-orange-100 active:scale-95 cursor-pointer"
-            onClick={() => router.push('/recipes/123')}
+            onClick={() => router.push(`/recipes/${recipe._id}`)}
           >
             View Recipe
           </button>
