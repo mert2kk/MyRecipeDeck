@@ -24,3 +24,16 @@ export const getRecipe = async (id: string) => {
 
   return recipe
 }
+
+export const getFavRecipes = async (userId: string) => {
+  await dbConnect()
+  const RawFavRecipes = await Recipe.find({
+    user: userId,
+    isFavorite: true,
+  })
+    .sort({ createdAt: -1 })
+    .lean()
+
+  const favRecipes = JSON.parse(JSON.stringify(RawFavRecipes))
+  return favRecipes
+}

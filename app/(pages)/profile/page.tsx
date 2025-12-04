@@ -1,6 +1,6 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 
+import { authOptions } from '@/app/services/authService'
 import Deck from '@/lib/models/Deck'
 import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
