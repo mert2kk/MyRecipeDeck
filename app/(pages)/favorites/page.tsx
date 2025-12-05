@@ -1,4 +1,5 @@
 import { authOptions } from '@/app/services/authService'
+import { getDecks } from '@/app/services/deckService'
 import { getFavRecipes } from '@/app/services/recipeService'
 import RecipeList from '@/components/recipes/RecipeList'
 import { getServerSession } from 'next-auth'
@@ -10,6 +11,8 @@ export default async function page() {
   if (!session) return
 
   const favRecipes = await getFavRecipes(session?.user?.id)
+  const decks = await getDecks(session?.user?.id)
+
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">
       {!favRecipes ? (
@@ -56,7 +59,11 @@ export default async function page() {
           <h1 className="font-bold text-3xl text-gray-800  font-kalam">
             My Favorite Recipes
           </h1>
-          <RecipeList isFavoriteList={true} recipes={favRecipes} />
+          <RecipeList
+            isFavoriteList={true}
+            recipes={favRecipes}
+            decks={decks}
+          />
         </>
       )}
     </div>

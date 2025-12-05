@@ -117,9 +117,7 @@ export default function RecipeCard({
           >
             View Recipe
           </button>
-          <div>
-            <AddToDeckMenu decks={decks} />
-          </div>
+          {decks && <AddToDeckMenu decks={decks} />}
         </div>
       </div>
     </div>
