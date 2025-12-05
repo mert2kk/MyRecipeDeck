@@ -61,7 +61,6 @@ export default function AddToDeckMenu({ decks, recipeId }: AddToDeckMenuProps) {
               <ul className="py-1 max-h-40 overflow-y-auto custom-scrollbar">
                 {decks.map((deck) => {
                   const isAdded = deck.recipes.includes(recipeId)
-                  console.log(deck.recipes)
                   return (
                     <li key={deck._id}>
                       <button
