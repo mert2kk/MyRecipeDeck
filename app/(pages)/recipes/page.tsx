@@ -1,4 +1,5 @@
 import { authOptions } from '@/app/services/authService'
+import { getDecks } from '@/app/services/deckService'
 import { getAllRecipes } from '@/app/services/recipeService'
 import RecipeList from '@/components/recipes/RecipeList'
 import { getServerSession } from 'next-auth'
@@ -12,8 +13,9 @@ export default async function page() {
   }
 
   const recipes = await getAllRecipes(session?.user?.id)
+  const decks = await getDecks(session?.user?.id)
   return (
-    <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">
+    <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px] ">
       <h1 className="font-bold text-3xl text-gray-800  font-kalam">
         My Recipes
       </h1>
@@ -65,7 +67,7 @@ export default async function page() {
           </Link>
         </div>
       ) : (
-        <RecipeList recipes={recipes} />
+        <RecipeList recipes={recipes} decks={decks} />
       )}
     </div>
   )

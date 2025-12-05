@@ -1,21 +1,24 @@
 'use client'
+import { IDeck } from '@/app/types/deck'
 import { IRecipe } from '@/app/types/recipe'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import CardsIcon from '../Icons/CardsIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import FilledHeartIcon from '../Icons/FilledHeartIcon'
+import AddToDeckMenu from '../decks/AddToDeckMenu'
 
 interface RecipeCardProps {
   recipe: IRecipe
   className?: string
   isFavoriteList?: Boolean
+  decks?: IDeck[]
 }
 
 export default function RecipeCard({
   recipe,
   className = '',
   isFavoriteList = false,
+  decks,
 }: RecipeCardProps) {
   const router = useRouter()
   if (!recipe) {
@@ -25,8 +28,8 @@ export default function RecipeCard({
     recipe
   return (
     <div
-      className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative overflow-hidden 
-       transition-all duration-300 ease-out
+      className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative
+       transition-all duration-300 ease-out focus-within:z-30
       hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 group ${className}`}
     >
       {/* Fav Effect*/}
@@ -114,10 +117,9 @@ export default function RecipeCard({
           >
             View Recipe
           </button>
-
-          <button className="flex items-center justify-center p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-black hover:text-[#173B61] transition-colors border border-transparent hover:border-gray-200 cursor-pointer">
-            <CardsIcon />+
-          </button>
+          <div>
+            <AddToDeckMenu decks={decks} />
+          </div>
         </div>
       </div>
     </div>

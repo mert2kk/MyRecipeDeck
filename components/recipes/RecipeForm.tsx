@@ -4,7 +4,7 @@ import { useState } from 'react'
 import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import ServiceBellIcon from '../Icons/ServiceBellIcon'
-import AddDeckMenu from './AddDeckMenu'
+import AddDeckMenu from '../decks/AddToDeckMenu'
 
 export default function RecipeForm() {
   const [title, setTitle] = useState('')
