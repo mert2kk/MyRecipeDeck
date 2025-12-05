@@ -10,10 +10,7 @@ const getMockRecipes = (userId: string) => [
   {
     name: 'Avocado & Poached Egg Toast',
     category: 'Breakfast',
-    ingredients: [
-      { name: 'Sourdough Bread', amount: '2 slices' },
-      { name: 'Ripe Avocado', amount: '1 whole' },
-    ],
+    ingredients: ['Bread', '1 avacado', 'cream cheese'],
     instructions: ['Toast bread', 'Mash avocado'],
     preparationTime: 15,
     servings: 1,
@@ -21,13 +18,17 @@ const getMockRecipes = (userId: string) => [
     badges: ['Vegetarian', 'Quick (15min)'],
     image:
       'https://images.unsplash.com/photo-1559753475-d6165680861f?q=80&w=1740&auto=format&fit=crop',
-    isFavorite: false,
+    isFavorite: true,
+    tips: [
+      'you can add some lemon to the avacado',
+      'you shouldnt overcook the egg',
+    ],
     user: userId,
   },
   {
     name: 'Classic Beef Lasagna',
     category: 'Main Course',
-    ingredients: [{ name: 'Ground Beef', amount: '500g' }],
+    ingredients: [' 500g Ground Beef', '1 Onion', '3 garlic'],
     instructions: ['Bake at 180°C'],
     preparationTime: 60,
     servings: 6,
@@ -41,7 +42,7 @@ const getMockRecipes = (userId: string) => [
   {
     name: 'Green Detox Smoothie',
     category: 'Drink',
-    ingredients: [{ name: 'Spinach', amount: '1 handful' }],
+    ingredients: [' Spinach', '1 lemon', '1 parsley '],
     instructions: ['Blend everything'],
     preparationTime: 5,
     servings: 1,
@@ -55,7 +56,7 @@ const getMockRecipes = (userId: string) => [
   {
     name: 'Grilled Salmon',
     category: 'Main Course',
-    ingredients: [{ name: 'Salmon', amount: '200g' }],
+    ingredients: [' Cream', '1 lemon', '200 gr Salmon '],
     instructions: ['Grill it'],
     preparationTime: 25,
     servings: 2,
@@ -69,7 +70,7 @@ const getMockRecipes = (userId: string) => [
   {
     name: 'Vegan Brownie',
     category: 'Dessert',
-    ingredients: [{ name: 'Cocoa', amount: '50g' }],
+    ingredients: [' 50g Cocoa', '200 ml milk', '100 gr Butter '],
     instructions: ['Bake it'],
     preparationTime: 40,
     servings: 8,

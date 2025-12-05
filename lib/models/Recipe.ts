@@ -7,12 +7,7 @@ const RecipeSchema = new mongoose.Schema(
       required: [true, 'Please provide a recipe name.'],
       maxlength: [60, 'Name cannot be more than 60 characters.'],
     },
-    ingredients: [
-      {
-        name: String,
-        amount: String,
-      },
-    ],
+    ingredients: [String],
     instructions: [String],
     tips: [String],
     servings: Number,

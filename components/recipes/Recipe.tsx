@@ -24,11 +24,11 @@ export default async function Recipe({ recipe }: { recipe: IRecipe }) {
           <h2 className="text-[#173B61] font-serif font-semibold text-center mb-2">
             {recipe.name}
           </h2>
-          {!recipe.image ? (
+          {recipe.image ? (
             <Image
-              src="/"
+              src={recipe.image}
               alt="Recipe Photo"
-              className=" w-auto object-cover rounded-xl p-2 "
+              className=" w-auto object-cover rounded-xl p-2 max-h-[700px] "
               width={320}
               height={320}
               style={{ objectFit: 'contain' }}
@@ -75,42 +75,36 @@ export default async function Recipe({ recipe }: { recipe: IRecipe }) {
         {/*  Below Image */}
       </div>
       {/* Text Side */}
+
       <div className="w-3/5 p-8 h-full items-center flex gap-y-20 text-center overflow-auto flex-col xl:mr-6">
         <h1 className="font-bold text-4xl text-black ">{recipe.name}</h1>
         <div className=" text-black flex flex-col gap-12">
           <div className="gap-8 flex flex-col">
             <h2 className="font-bold text-3xl">Ingredients</h2>
             <ul className="text-xl text-start list-disc">
-              <li>200 g pasta (penne or rigatoni works best)</li>
-              <li> 2 tbsp olive oil</li>
-              <li>2 cloves garlic, minced</li>
-              <li>1 small onion, finely chopped</li>
-              <li>200 g tomato sauce or crushed tomatoes</li>
+              {recipe.ingredients.map((i, index) => (
+                <li key={index}>{i}</li>
+              ))}
             </ul>
           </div>
           <div className="gap-8 flex flex-col">
             <h2 className="font-bold text-3xl">Instructions</h2>
             <ol className="text-xl text-start list-decimal">
-              <li>Cook the pasta</li>
-              <li>Prepare the sauce</li>
-              <li>Deglaze with vodka</li>
-              <li>Add tomato sauce</li>
-              <li>Make it creamy</li> <li>Cook the pasta</li>
-              <li>Prepare the sauce</li>
-              <li>Deglaze with vodka</li>
-              <li>Add tomato sauce</li>
-              <li>Make it creamy</li>
+              {recipe.instructions.map((i, index) => (
+                <li key={index}>{i}</li>
+              ))}
             </ol>
           </div>
-          <div className="gap-8 flex flex-col">
-            <h2 className="font-bold text-3xl">Tips</h2>
-            <ul className="text-xl text-start list-disc">
-              <li>Don’t worry — the alcohol cooks off; just flavor remains.</li>
-              <li>
-                Rigatoni or penne sticks to the sauce better than spaghetti.
-              </li>
-            </ul>
-          </div>
+          {recipe.tips && (
+            <div className="gap-8 flex flex-col">
+              <h2 className="font-bold text-3xl">Tips</h2>
+              <ul className="text-xl text-start list-disc">
+                {recipe.tips?.map((t, index) => (
+                  <li key={index}>{t}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

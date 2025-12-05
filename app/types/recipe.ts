@@ -1,8 +1,3 @@
-export interface Ingredient {
-  name: string
-  amount: string
-}
-
 export type RecipeCategory =
   | 'Breakfast'
   | 'Main Course'
@@ -36,7 +31,7 @@ export type RecipeBadge =
 export interface IRecipe {
   _id: string
   name: string
-  ingredients: Ingredient[]
+  ingredients: string[]
   instructions: string[]
   tips?: string[]
   category: RecipeCategory

@@ -8,12 +8,7 @@ const HeroSection = () => {
     {
       name: 'Blueberry Pancakes',
       category: 'Breakfast',
-      ingredients: [
-        { name: 'Sourdough Bread', amount: '2 slices' },
-        { name: 'Ripe Avocado', amount: '1 whole' },
-        { name: 'Large Eggs', amount: '2' },
-        { name: 'Chili Flakes', amount: '1 pinch' },
-      ],
+      ingredients: [],
       instructions: [
         'Toast the sourdough bread slices until golden brown.',
         'Mash the avocado with a fork and spread it over the toast.',
@@ -39,12 +34,7 @@ const HeroSection = () => {
     {
       name: 'Greek Salad',
       category: 'Salad',
-      ingredients: [
-        { name: 'Ground Beef', amount: '500g' },
-        { name: 'Lasagna Sheets', amount: '1 pack' },
-        { name: 'Bechamel Sauce', amount: '2 cups' },
-        { name: 'Mozzarella Cheese', amount: '200g' },
-      ],
+      ingredients: [],
       instructions: [
         'Sauté the ground beef with onions and tomato sauce.',
         'Layer the lasagna sheets, meat sauce, and bechamel in a baking dish.',
@@ -68,12 +58,7 @@ const HeroSection = () => {
     {
       name: 'Pasta Alla Vodka',
       category: 'Main Course',
-      ingredients: [
-        { name: 'Spinach', amount: '1 handful' },
-        { name: 'Green Apple', amount: '1' },
-        { name: 'Lemon Juice', amount: '1/2 lemon' },
-        { name: 'Ginger', amount: '1 small piece' },
-      ],
+      ingredients: [],
       instructions: [
         'Wash all ingredients thoroughly.',
         'Place everything into a high-speed blender.',
