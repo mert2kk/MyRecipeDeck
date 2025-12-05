@@ -2,6 +2,7 @@ import dbConnect from '@/lib/db'
 import Deck from '@/lib/models/Deck'
 import Recipe from '@/lib/models/Recipe'
 import { IDeck } from '../types/deck'
+import { IRecipe } from '../types/recipe'
 
 export const getDecks = async (userId: string) => {
   await dbConnect()
@@ -25,7 +26,7 @@ export const getRecipesByDeck = async (id: string) => {
     .sort({ updatedAt: -1 })
     .lean()
 
-  const recipes = JSON.parse(JSON.stringify(rawRecipes))
+  const recipes = JSON.parse(JSON.stringify(rawRecipes)) as IRecipe[]
 
   return { recipes, deck }
 }

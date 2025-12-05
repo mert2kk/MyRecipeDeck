@@ -1,10 +1,8 @@
-import { IRecipe } from './recipe'
-
-export interface IDeck {
+export interface IDeck<T = string> {
   _id: string
   name: string
   description?: string
-  recipes: IRecipe[]
+  recipes: T[]
   user: string // User ID'si
   coverImage: string
   createdAt: string

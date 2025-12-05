@@ -24,8 +24,17 @@ export default function RecipeCard({
   if (!recipe) {
     return null // veya <div className="skeleton...">Loading...</div>
   }
-  const { name, category, image, preparationTime, servings, kcal, isFavorite } =
-    recipe
+  const {
+    name,
+    category,
+    image,
+    preparationTime,
+    servings,
+    kcal,
+    isFavorite,
+    _id,
+  } = recipe
+
   return (
     <div
       className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative
@@ -117,7 +126,7 @@ export default function RecipeCard({
           >
             View Recipe
           </button>
-          {decks && <AddToDeckMenu decks={decks} />}
+          {decks && <AddToDeckMenu decks={decks} recipeId={_id} />}
         </div>
       </div>
     </div>

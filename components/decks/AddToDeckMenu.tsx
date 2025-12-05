@@ -6,8 +6,9 @@ import CardsIcon from '../Icons/CardsIcon'
 
 interface AddToDeckMenuProps {
   decks?: IDeck[]
+  recipeId: string
 }
-export default function AddToDeckMenu({ decks }: AddToDeckMenuProps) {
+export default function AddToDeckMenu({ decks, recipeId }: AddToDeckMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -46,33 +47,70 @@ export default function AddToDeckMenu({ decks }: AddToDeckMenuProps) {
 
       {/* --- Dropdown Menu --- */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-red-200 rounded-xl shadow-lg border border-gray-100 z-50 overflow-hidden">
-          <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              Select Deck
-            </p>
-          </div>
+        <div className="absolute -right-7 top-full  w-48 z-50 origin-bottom-right animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-white/90 backdrop-blur-md border border-white/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden ring-1 ring-black/5">
+            {/* Header */}
+            <div className="px-3 py-2 border-b border-gray-100/50">
+              <p className="text-[10px] font-bold text-[#173B61]/60 uppercase tracking-widest">
+                Select Deck
+              </p>
+            </div>
 
-          {decks && (
-            <ul className="py-1">
-              {decks.map((deck) => (
-                <li key={deck._id}>
-                  <button
-                    onClick={() => handleAddToDeck(deck._id)}
-                    className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-                    {deck.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
+            {/* List */}
+            {decks && (
+              <ul className="py-1 max-h-40 overflow-y-auto custom-scrollbar">
+                {decks.map((deck) => {
+                  const isAdded = deck.recipes.includes(recipeId)
+                  console.log(deck.recipes)
+                  return (
+                    <li key={deck._id}>
+                      <button
+                        onClick={() => handleAddToDeck(deck._id)}
+                        className="group w-full text-left px-3 py-2 text-xs font-medium text-[#173B61] hover:bg-[#fc4126]/10 hover:text-[#fc4126] transition-all flex items-center gap-2"
+                      >
+                        {/* GÖRSEL İŞARETLEYİCİ */}
+                        <div
+                          className={`flex items-center justify-center w-3 h-3 rounded-full border transition-all duration-200
+                            ${
+                              isAdded
+                                ? 'bg-[#fc4126] border-[#fc4126]'
+                                : 'bg-transparent border-gray-300 group-hover:border-[#fc4126]'
+                            }
+                          `}
+                        >
+                          {isAdded && (
+                            <svg
+                              className="w-2 h-2 text-white stroke-3"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                            >
+                              <path
+                                d="M5 13l4 4L19 7"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+                        </div>
 
-          <div className="border-t border-gray-100 p-1">
-            <button className="w-full text-left px-3 py-2 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors flex items-center justify-center gap-1">
-              + New Deck
-            </button>
+                        <span
+                          className={`truncate ${isAdded ? 'font-bold' : ''}`}
+                        >
+                          {deck.name}
+                        </span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+
+            <div className="p-2 border-t border-gray-100/50 bg-gray-50/50">
+              <button className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 text-[10px] font-bold text-[#fc4126] bg-white hover:bg-[#fc4126] hover:text-white border border-[#fc4126]/20 hover:border-[#fc4126] rounded-lg transition-all shadow-sm">
+                <span>+</span> Create New
+              </button>
+            </div>
           </div>
         </div>
       )}
