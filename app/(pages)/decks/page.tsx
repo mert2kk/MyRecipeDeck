@@ -1,8 +1,7 @@
 import { authOptions } from '@/app/services/authService'
-import { IDeck } from '@/app/types/deck'
+import { getDecks } from '@/app/services/deckService'
 import RecipeDecks from '@/components/decks/RecipeDecks'
 import dbConnect from '@/lib/db'
-import Deck from '@/lib/models/Deck'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
@@ -12,13 +11,11 @@ export default async function Page() {
   await dbConnect()
 
   const user = await User.findOne({ email: session?.user?.email })
-  const rawDecks = await Deck.find({ user: session?.user.id })
-    .sort({
-      created: -1,
-    })
-    .lean()
+  if (!session) {
+    return
+  }
 
-  const decks = JSON.parse(JSON.stringify(rawDecks)) as IDeck[]
+  const decks = await getDecks(session?.user.id)
 
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">

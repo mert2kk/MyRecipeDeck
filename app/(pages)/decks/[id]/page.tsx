@@ -1,9 +1,8 @@
 import { authOptions } from '@/app/services/authService'
+import { getRecipesByDeck } from '@/app/services/deckService'
 import RecipeList from '@/components/recipes/RecipeList'
 import BackButton from '@/components/ui/BackButton'
 import dbConnect from '@/lib/db'
-import Deck from '@/lib/models/Deck'
-import Recipe from '@/lib/models/Recipe'
 import User from '@/lib/models/User'
 import { getServerSession } from 'next-auth'
 
@@ -17,19 +16,11 @@ export default async function page({ params }: PageProps) {
   await dbConnect()
 
   const user = await User.findOne({ email: session?.user.email })
-  const deck = await Deck.findOne({ _id: id }).lean()
+  const { recipes, deck } = await getRecipesByDeck(id)
 
   if (!deck) {
     return <div>Deck not found!</div>
   }
-
-  const recipeIDs = deck.recipes
-
-  const rawRecipes = await Recipe.find({ _id: { $in: recipeIDs } })
-    .sort({ updatedAt: -1 })
-    .lean()
-
-  const recipes = JSON.parse(JSON.stringify(rawRecipes))
 
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px] ">
