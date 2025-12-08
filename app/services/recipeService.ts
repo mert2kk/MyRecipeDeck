@@ -37,3 +37,15 @@ export const getFavRecipes = async (userId: string) => {
   const favRecipes = JSON.parse(JSON.stringify(RawFavRecipes))
   return favRecipes
 }
+
+export const makeRecipeFav = async (recipeId: string) => {
+  await dbConnect()
+  const recipe = await Recipe.findById(recipeId)
+
+  if (!recipe) return { success: false, message: 'Tarif bulunamadı' }
+
+  recipe.isFavorite = !recipe.isFavorite
+
+  await recipe.save()
+  return recipe.isFavorite
+}

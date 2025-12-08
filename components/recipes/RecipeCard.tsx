@@ -1,4 +1,5 @@
 'use client'
+import { toggleFavAction } from '@/app/actions/recipeActions'
 import { IDeck } from '@/app/types/deck'
 import { IRecipe } from '@/app/types/recipe'
 import Image from 'next/image'
@@ -35,6 +36,8 @@ export default function RecipeCard({
     _id,
   } = recipe
 
+  const handleFavRecipe = async () => await toggleFavAction(_id)
+
   return (
     <div
       className={`w-full bg-[#ffffff] h-auto min-h-[220px] flex flex-row rounded-3xl relative
@@ -56,7 +59,10 @@ export default function RecipeCard({
       ) : null}
       {/* Fav Button*/}
       <div className="absolute top-4 right-4 z-10">
-        <button className="flex items-center justify-center p-1 bg-white/50 hover:bg-white backdrop-blur-sm rounded-full transition-all shadow-sm text-gray-400 hover:text-[#fc4126] hover:scale-110 cursor-pointer">
+        <button
+          onClick={handleFavRecipe}
+          className="flex items-center justify-center p-1 bg-white/50 hover:bg-white backdrop-blur-sm rounded-full transition-all shadow-sm text-gray-400 hover:text-[#fc4126] hover:scale-110 cursor-pointer"
+        >
           {isFavorite ? <FilledHeartIcon /> : <EmptyHeartIcon />}
         </button>
       </div>
