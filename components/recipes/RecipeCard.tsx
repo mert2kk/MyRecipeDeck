@@ -46,7 +46,7 @@ export default function RecipeCard({
     >
       {/* Fav Effect*/}
       {isFavoriteList ? (
-        <div className="absolute right-16 top-12 opacity-[0.07] text-brand-dark z-0 pointer-events-none group-hover:scale-400 transition-transform duration-500">
+        <div className="absolute right-16 top-12 opacity-[0.06] text-brand-dark z-0 pointer-events-none group-hover:scale-150 transition-transform duration-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
