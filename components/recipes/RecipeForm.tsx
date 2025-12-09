@@ -1,10 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import DeckIcon from '../Icons/DeckIcon'
 import EmptyHeartIcon from '../Icons/EmptyHeartIcon'
 import ServiceBellIcon from '../Icons/ServiceBellIcon'
-import AddDeckMenu from '../decks/AddToDeckMenu'
 
 export default function RecipeForm() {
   const [title, setTitle] = useState('')
@@ -87,13 +85,10 @@ export default function RecipeForm() {
           <div className="flex flex-col justify-center items-center">
             <p className="font-semibold text-gray-600 pb-4">Dish Type</p>
           </div>
-          <h1 className="text-black  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer ">
-            <span className="flex flex-row text-white relative">
-              <DeckIcon />
-              <p className="absolute pt-0.5 right-0.5">+</p>
-            </span>
-            <AddDeckMenu />
-          </h1>
+          {/* Only in edit mode cause we need recipeId */}
+          {/* <h1 className="text-black  text-sm font-bold left-0 top-0 m-4 flex flex-row gap-2 items-center cursor-pointer ">
+            <AddToDeckMenu />
+          </h1> */}
         </div>
       </div>
       {/* Right Side (Form Fields) */}
