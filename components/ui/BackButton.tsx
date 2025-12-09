@@ -24,7 +24,7 @@ export default function BackButton() {
         viewBox="0 0 24 24"
         strokeWidth={4}
         stroke="currentColor"
-        className="w-4 h-4 text-gray-600 transition-colors group-hover:text-gray-900"
+        className="w-4 h-4 text-brand-dark transition-colors group-hover:text-brand-dark/80"
       >
         <path
           strokeLinecap="round"

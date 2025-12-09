@@ -23,7 +23,7 @@ export default async function page({ params }: PageProps) {
   }
 
   return (
-    <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px] ">
+    <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px] relative">
       <div className="absolute right-10 top-10">
         <BackButton />
       </div>

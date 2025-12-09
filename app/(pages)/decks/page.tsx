@@ -19,9 +19,6 @@ export default async function Page() {
 
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px]">
-      <h1 className="font-bold text-3xl text-gray-800 font-kalam ">
-        My Recipe Decks
-      </h1>
       {decks.length === 0 || !decks ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           {/* Ikon Alanı - Yatay Kart Destesi */}
@@ -54,7 +51,7 @@ export default async function Page() {
           </p>
 
           <Link
-            href="/decks/new"
+            href="/decks"
             className="
       group relative
       inline-flex items-center gap-2
@@ -72,7 +69,12 @@ export default async function Page() {
           </Link>
         </div>
       ) : (
-        <RecipeDecks decks={decks} />
+        <>
+          <h1 className="font-bold text-3xl text-gray-800 font-kalam ">
+            My Recipe Decks
+          </h1>
+          <RecipeDecks decks={decks} />
+        </>
       )}
     </div>
   )

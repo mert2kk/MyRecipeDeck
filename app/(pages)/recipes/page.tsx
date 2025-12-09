@@ -16,9 +16,6 @@ export default async function page() {
   const decks = await getDecks(session?.user?.id)
   return (
     <div className="w-full max-w-7xl flex flex-col items-center gap-20 2xl:max-w-[1800px] ">
-      <h1 className="font-bold text-3xl text-gray-800  font-kalam">
-        My Recipes
-      </h1>
       {recipes.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <div className="w-16 h-16 bg-orange-50 text-brand-orange rounded-full flex items-center justify-center mb-6 text-2xl">
@@ -67,7 +64,12 @@ export default async function page() {
           </Link>
         </div>
       ) : (
-        <RecipeList recipes={recipes} decks={decks} />
+        <>
+          <h1 className="font-bold text-3xl text-gray-800  font-kalam">
+            My Recipes
+          </h1>
+          <RecipeList recipes={recipes} decks={decks} />
+        </>
       )}
     </div>
   )
