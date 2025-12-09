@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const DeckSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please provide a deck name."],
-      maxlength: [30, "Deck name cannot be more than 30 characters."],
+      required: [true, 'Please provide a deck name.'],
+      maxlength: [30, 'Deck name cannot be more than 30 characters.'],
     },
     description: {
       type: String,
@@ -14,22 +14,23 @@ const DeckSchema = new mongoose.Schema(
     recipes: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Recipe",
+        ref: 'Recipe',
       },
     ],
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
+      index: true,
     },
     coverImage: {
       type: String,
-      default: "default-deck.jpg",
+      default: 'default-deck.jpg',
     },
   },
   {
     timestamps: true,
-  }
-);
+  },
+)
 
-export default mongoose.models.Deck || mongoose.model("Deck", DeckSchema);
+export default mongoose.models.Deck || mongoose.model('Deck', DeckSchema)

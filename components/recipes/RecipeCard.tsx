@@ -1,5 +1,5 @@
 'use client'
-import { toggleFavAction } from '@/app/actions/recipeActions'
+import { toggleRecipeFavAction } from '@/app/actions/recipeActions'
 import { IDeck } from '@/app/types/deck'
 import { IRecipe } from '@/app/types/recipe'
 import Image from 'next/image'
@@ -36,7 +36,7 @@ export default function RecipeCard({
     _id,
   } = recipe
 
-  const handleFavRecipe = async () => await toggleFavAction(_id)
+  const handleFavRecipe = async () => await toggleRecipeFavAction(_id)
 
   return (
     <div

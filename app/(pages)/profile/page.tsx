@@ -12,6 +12,7 @@ export default async function ProfilePage() {
   const user = await User.findOne({ email: session?.user?.email })
   const recipeCount = await Recipe.countDocuments({ user: user._id })
   const deckCount = await Deck.countDocuments({ user: user._id })
+  const favCount = await Recipe.countDocuments({ isFavorite: true })
 
   return (
     <div className="flex flex-col gap-10 items-center w-full h-full">
@@ -68,7 +69,7 @@ export default async function ProfilePage() {
 
           <div>
             <p className="font-semibold text-sm">Favorites</p>
-            {user.favorites?.length || 0}
+            {favCount}
           </div>
         </div>
       </div>

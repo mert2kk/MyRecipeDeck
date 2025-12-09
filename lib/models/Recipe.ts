@@ -65,6 +65,11 @@ const RecipeSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
+    originalSource: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Recipe',
+      default: null,
+    },
   },
   {
     timestamps: true,

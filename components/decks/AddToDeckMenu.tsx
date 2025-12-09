@@ -1,5 +1,6 @@
 'use client'
 
+import { toggleRecipeInDeckAction } from '@/app/actions/recipeActions'
 import { IDeck } from '@/app/types/deck'
 import { useEffect, useRef, useState } from 'react'
 import CardsIcon from '../Icons/CardsIcon'
@@ -24,10 +25,8 @@ export default function AddToDeckMenu({ decks, recipeId }: AddToDeckMenuProps) {
     }
   }, [])
 
-  const handleAddToDeck = (deckId: string) => {
-    console.log(`Tarif Deck ID: ${deckId} içine eklendi.`)
-    setIsOpen(false)
-    // Buraya API isteği gelecek
+  const handleRecipeInDeckAction = (deckId: string, recipeId: string) => {
+    toggleRecipeInDeckAction(deckId, recipeId)
   }
 
   return (
@@ -64,7 +63,9 @@ export default function AddToDeckMenu({ decks, recipeId }: AddToDeckMenuProps) {
                   return (
                     <li key={deck._id}>
                       <button
-                        onClick={() => handleAddToDeck(deck._id)}
+                        onClick={() =>
+                          handleRecipeInDeckAction(deck._id, recipeId)
+                        }
                         className="group w-full text-left px-3 py-2 text-xs font-medium text-[#173B61] hover:bg-[#fc4126]/10 hover:text-[#fc4126] transition-all flex items-center gap-2"
                       >
                         {/* GÖRSEL İŞARETLEYİCİ */}

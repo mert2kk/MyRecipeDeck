@@ -9,8 +9,6 @@ export const getAllRecipes = async (userId: string) => {
     .sort({ createdAt: -1 })
     .lean()
 
-  //Clear data
-
   const recipes = JSON.parse(JSON.stringify(rawRecipes)) as IRecipe[]
 
   return recipes
@@ -38,14 +36,10 @@ export const getFavRecipes = async (userId: string) => {
   return favRecipes
 }
 
-export const makeRecipeFav = async (recipeId: string) => {
+export const toggleRecipeFav = async (recipeId: string) => {
   await dbConnect()
   const recipe = await Recipe.findById(recipeId)
 
-  if (!recipe) return { success: false, message: 'Tarif bulunamadı' }
-
   recipe.isFavorite = !recipe.isFavorite
-
   await recipe.save()
-  return recipe.isFavorite
 }

@@ -20,12 +20,6 @@ const UserSchema = new mongoose.Schema(
       maxlength: [160, 'Bio cannot be more than 160 characters.'],
       default: 'I love cooking!',
     },
-    favorites: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Recipe',
-      },
-    ],
   },
   {
     timestamps: true,
